@@ -137,23 +137,30 @@
   const calculateResults = () => {
     let pointALocationString = toValue(pointHolder.pointALocation);
     let pointBLocationString = toValue(pointHolder.pointBLocation);
+    const lat1 = pointHolder.pointALocation.split(',')[0];
+    const lon1 = pointHolder.pointALocation.split(',')[1];
+    const lat2 = pointHolder.pointBLocation.split(',')[0];
+    const lon2 = pointHolder.pointBLocation.split(',')[1];
     if (!(pointALocationString.includes(',') && pointBLocationString.includes(','))) {
-      emit('error', 'Please make sure the coordinates are comma separated')
+      emit('error', 'Please make sure the coordinates are comma separated');
       return;
+    } else if ((lat1 === ''  || lon1 === '') || (lat2 === '' || lon2 === '')) {
+      emit('error', 'Please make sure you include latitude and longitude');
+      return;
+    } else if ((lon1 >= 180 || lon1 <= -180) || lon2 >= 180 || lon2 <= -180) {
+      emit('error', 'Please make sure you pick a valid longitude');
+      return;
+    } else if((lat1 >= 85 || lat1 <= -85) || (lat2 >= 85 || lat2 <= -85)) {
+      emit('error', 'Please make sure you pick a valid latitude')
     } else {
       markerArray.forEach((marker) => { 
-        marker.setMap(null)
+        marker.setMap(null);
       })
       markerArray = [];
       result.distance = calculateAirDistance(pointALocationString, pointBLocationString);
-      
-      const lat1 = Number(pointHolder.pointALocation.split(',')[0]);
-      const lon1 = Number(pointHolder.pointALocation.split(',')[1]);
-      placeMarker({ lat: lat1, lng: lon1 });
-      const lat2 = Number(pointHolder.pointBLocation.split(',')[0]);
-      const lon2 = Number(pointHolder.pointBLocation.split(',')[1]);
-      placeMarker({ lat: lat2, lng: lon2 });
-      setBounds([{ lat: lat1, lng: lon1 }, { lat: lat2, lng: lon2 }])
+      placeMarker({ lat: Number(lat1), lng: Number(lon1) });
+      placeMarker({ lat: Number(lat2), lng: Number(lon2) });
+      setBounds([{ lat: Number(lat1), lng: Number(lon1) }, { lat: Number(lat2), lng: Number(lon2) }]);
     }
   };
 
