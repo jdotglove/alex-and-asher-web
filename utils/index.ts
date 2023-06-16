@@ -32,3 +32,11 @@ export const calculateAirDistance = (pointAString: string, pointBString: string)
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return (earthRadius * c).toFixed(2); //trim decimals
 }
+
+export const parseCoordinatesFromString = (decimalString: string) => {
+  const coordArray = decimalString.split(',')
+  return {
+    lat: Number(coordArray[0]),
+    lng: Number(coordArray[1]),
+  }
+}

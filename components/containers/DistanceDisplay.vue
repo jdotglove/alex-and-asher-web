@@ -2,7 +2,7 @@
   <v-card
     class="mx-auto py-2"
     width="1200"
-    height="450"
+    height="900"
     prepend-icon="mdi-map-marker-distance"
   >
     <v-card-title>
@@ -12,39 +12,149 @@
         </v-col>
       </v-row>
     </v-card-title>
+    <v-card-text>
     <v-row>
-      <v-col cols="9">
-        <DistanceInput
-          :location-a-string="pointALocationString"
-          :location-b-string="pointBLocationString"
-          @update:locationAString="newlocationAString => pointALocationString = newlocationAString"
-          @update:locationBString="newlocationBString => pointBLocationString = newlocationBString"
-        />
+      <v-col cols="7">
         <v-row>
-          <v-col class="text-center">
-            <v-btn @click="calculateResults" color="primary">Calculate</v-btn>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col class="text-center">
-            <h2>{{distanceBetweenPoints}}</h2>
+          <v-col>
+            <v-row>
+              <v-col>
+              <DistanceInput
+                :location-a-string="pointHolder.pointALocation"
+                :location-b-string="pointHolder.pointBLocation"
+                @update:locationAString="newInput => pointHolder.pointALocation = handleLocationUpdate(newInput)"
+                @update:locationBString="newInput => pointHolder.pointBLocation = handleLocationUpdate(newInput)"
+              />
+              </v-col>
+            </v-row>
+            <v-row align="center">
+              <v-col cols="3">
+                <v-btn @click="calculateResults" color="primary">Calculate</v-btn>
+              </v-col>
+              <v-col cols="5">
+                <h2>{{distanceBetweenPoints}}</h2>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-col>
     </v-row>
-    </v-card>
+    </v-card-text>
+      <div id="mapDiv" />
+  </v-card>
 </template>
 <script setup>
+  import { Client } from '@googlemaps/google-maps-services-js';
+  import { Loader } from '@googlemaps/js-api-loader';
+
   import DistanceInput from '../inputs/DistanceInput.vue';
-  const pointALocationString = ref('');
-  const pointBLocationString = ref('');
+
+  const emit = defineEmits(['error']);
+
+  const {
+    public: {
+      GOOGLE_MAPS_API_KEY
+    }
+  } = useRuntimeConfig();
+  let pointALocation = ref('');
+  let pointBLocation = ref('');
+  let pointHolder = reactive({
+    pointALocation,
+    pointBLocation
+  })
+  let showAlert = ref(false);
+  let errorText = ref('');
   const result = reactive({
     distance: 0,
   });
+  let markerArray = [];
+  let map;
+  const mapOptions = {
+    center: {
+      lat: 30,
+      lng: -100
+    },
+    zoom: 4
+  };
+  const handleLocationUpdate = (newInputValue) => {
+    markerArray.forEach(marker => {
+      marker.setMap(null);
+      markerArray = [];
+    })
+    return newInputValue
+  }
+
+  onMounted(async () => {
+    const loader = new Loader({
+      apiKey: GOOGLE_MAPS_API_KEY,
+      version: 'weekly',
+      libraries: ['places'],
+    });
+
+    await loader.importLibrary('maps').then(({ Map }) => {
+      map = new Map(document.getElementById('mapDiv'), mapOptions);
+      map.addListener('click', (e) => {
+        const stringCoords = `${e.latLng?.lat()}, ${e.latLng?.lng()}`;
+        if ((pointALocation.value !== '' && pointBLocation.value === '')) {
+          pointBLocation.value = stringCoords;
+        } else if (pointALocation.value !== '' && pointBLocation.value !== '') {
+          markerArray.forEach((marker) => { 
+            marker.setMap(null)
+          });
+          markerArray = [];
+          pointHolder.pointALocation = stringCoords;
+          pointHolder.pointBLocation = '';
+        } else {
+          pointHolder.pointALocation = stringCoords;
+        }
+        placeMarker(e.latLng);
+        map.panTo(e.latLng);
+      });
+    }).catch((e) => {
+      // do something
+    });
+  });
+
+  const placeMarker = (latLng) => {
+    const marker = new google.maps.Marker({
+      position: latLng,
+      map,
+    });
+    marker.addListener('click', (event) => {
+      marker.setMap(null);
+    });
+
+    markerArray.push(marker);
+  }
+  const setBounds = (coordinateArray) => {
+    const bounds = new google.maps.LatLngBounds()
+    coordinateArray.forEach(coord => {
+      bounds.extend(new google.maps.LatLng(coord.lat, coord.lng))
+    });
+    map.fitBounds(bounds)
+  }
+
   const calculateResults = () => {
-    let pointADecimalLocation = toValue(pointALocationString);
-    let pointBDecimalLocation = toValue(pointBLocationString);
-    result.distance = calculateAirDistance(pointADecimalLocation, pointBDecimalLocation);
+    let pointALocationString = toValue(pointHolder.pointALocation);
+    let pointBLocationString = toValue(pointHolder.pointBLocation);
+    if (!(pointALocationString.includes(',') && pointBLocationString.includes(','))) {
+      emit('error', 'Please make sure the coordinates are comma separated')
+      return;
+    } else {
+      markerArray.forEach((marker) => { 
+        marker.setMap(null)
+      })
+      markerArray = [];
+      result.distance = calculateAirDistance(pointALocationString, pointBLocationString);
+      
+      const lat1 = Number(pointHolder.pointALocation.split(',')[0]);
+      const lon1 = Number(pointHolder.pointALocation.split(',')[1]);
+      placeMarker({ lat: lat1, lng: lon1 });
+      const lat2 = Number(pointHolder.pointBLocation.split(',')[0]);
+      const lon2 = Number(pointHolder.pointBLocation.split(',')[1]);
+      placeMarker({ lat: lat2, lng: lon2 });
+      setBounds([{ lat: lat1, lng: lon1 }, { lat: lat2, lng: lon2 }])
+    }
   };
 
 const distanceBetweenPoints = computed(() => {
@@ -52,3 +162,15 @@ const distanceBetweenPoints = computed(() => {
 })
 
 </script>
+<style scoped>
+#mapDiv {
+  /* position: absolute !important; */
+  width: 650px;
+  height: 450px;
+  left: 500px;
+  bottom: 300px;
+}
+#errorSnack {
+  position: absolute important;
+}
+</style>
