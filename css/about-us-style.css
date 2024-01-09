@@ -1,0 +1,117 @@
+.about-us-page-title {
+    font: 72px "Crimson Text", serif;
+    text-align: center;
+    padding: 50px 60px 55px;
+    align-self: stretch;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    color: #13263A;
+}
+
+.about-us-description-text {
+    font: 20px "PT Serif";
+    color: #434A56;
+    line-height: 2;
+    padding-right: 32px;
+}
+
+.about-us-description-text > p {
+    margin-top: 0;
+}
+
+.about-us-description-container {
+    display: flex;
+    column-gap: 3rem;
+    margin: 2rem 4rem 7rem 4rem;
+}
+
+.draft-photo {
+    width: 23lvw;
+    height: 18lvw;
+}
+
+.about-us-photo-and-text {
+    font: 27px "Crimson Text", serif;
+    padding-left: 32px;
+}
+
+.about-us-photo-and-text > p {
+    margin-top: 0;
+    text-align: left;
+    line-height: 1.25;
+}
+
+.about-team-container {
+    margin: 2rem 4rem 7rem 4rem;
+}
+
+.about-team-container > h3 {
+    font: 44px "Crimson Text", serif;
+    padding-left: 24px;
+}
+
+.about-jordon-container {
+    background-color: #FFF3E4;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1;
+    padding: 17px;
+}
+
+.jordon-pic {
+    max-width: 100%;
+    max-height: 60lvw;
+}
+
+.about-jordon-text-container > h4 {
+    font: 56.5px "Crimson Text", serif;
+    margin-top: 0;
+    margin-bottom: 32px;
+}
+
+.about-jordon-text-container {
+    height: fit-content;
+    align-self: center;
+}
+
+.occupation-text {
+    font: 16.8px "Nunito Sans", sans-serif;
+    margin-bottom: 40px;
+}
+
+.jordon-info-text > p {
+    margin-top: 0;
+    font: 16.8px "PT Serif";
+    color: #434A56;
+    line-height: 1.75;
+    max-width: 602px;
+}
+
+.jordon-info-text {
+    display: grid;
+    row-gap: 20px;
+}
+.about-autumn-container {
+    background-color: #FFF3E4;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1;
+    padding: 17px;
+    margin-top: 60px;
+}
+
+.autumn-pic {
+    max-width: 100%;
+    max-height: 60lvw;
+}
+
+.about-autumn-text-container > h4 {
+    font: 56.5px "Crimson Text", serif;
+    margin-top: 0;
+    margin-bottom: 32px;
+}
+
+.about-autumn-text-container {
+    height: fit-content;
+    align-self: center;
+}

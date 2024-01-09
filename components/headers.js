@@ -3,7 +3,7 @@ class DesktopHeader extends HTMLElement {
   constructor() {
     super();
     this.navigationLinks = `
-      <a href="#" class="nav-link ${window.location.pathname.includes("/about-us") ? "active" : ""}">About Us</a>
+      <a href="about-us.html" class="nav-link ${window.location.pathname.includes("/about-us") ? "active" : ""}">About Us</a>
       <a href="services.html" class="nav-link ${window.location.pathname.includes("/services") ? "active" : ""}">Services</a>
       <a href="shop.html" class="nav-link ${window.location.pathname.includes("/shop") ? "active" : ""}">Shop</a>
       <a
@@ -248,23 +248,6 @@ class MobileHeader extends HTMLElement {
             display: none;
           }
         }
-    
-        .nav-dialog {
-          /* Height & width depends on how you want to reveal the overlay (see JS below) */
-          height: 0;
-          width: 100%;
-          position: fixed;
-          /* Stay in place */
-          z-index: 1;
-          /* Sit on top */
-          left: 0;
-          top: 0;
-          background-color: rgb(255, 255, 255);
-          overflow-x: hidden;
-          /* Disable horizontal scroll */
-          transition: .1s;
-          /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-        }
         .search-wrapper {
           cursor: pointer;
           display: flex;
@@ -294,6 +277,7 @@ class MobileHeader extends HTMLElement {
         }
       </style>
       <header class="mobile-header">
+      
       <div class="main-container">
         <div class="search-wrapper">
           <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -302,7 +286,7 @@ class MobileHeader extends HTMLElement {
               fill="black" />
           </svg>
         </div>
-        <h1 class="title">Alex & Asher</h1>
+        <h1 class="title"><a href="index.html">Alex & Asher</a></h1>
         <button class="more-wrapper" onclick="openNav()">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path

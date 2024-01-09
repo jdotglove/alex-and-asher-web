@@ -6,7 +6,59 @@
         padding-bottom: 40px;
     }
     .services-content {
-        padding: 10px 8%;
+        justify-items: center !important;
+        align-self: flex-start !important;
+        margin-top: 1rem;
+        display: flex;
+    }
+    .services-text {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        line-height: 2.25rem !important;
+        font-size: 31px !important;
+    }
+    .services-page-title {
+        margin-top: 0;
+    }
+    .services-description-container {
+        margin: 2rem 1rem 2rem;
+    }
+    .desktop-services-list-card {
+        display: none;
+    }
+    .mobile-services-list-card {
+        background-color: #F7F7F7;
+        padding: 2rem 2rem 1rem 2rem;
+        margin: 2rem 1rem 2rem;
+    }
+    .services-column-header {
+        flex-wrap: wrap;
+        font: 20px "Crimson Text", serif;
+        text-align: center;
+        max-width: 275px;
+        margin: 0 0;
+        display: flex;
+        justify-self: center;
+    }
+
+    .services-column-header > h4 {
+        margin: 0 0;
+    }
+    .services-column {
+        display: grid;
+    }
+    .services-column-separator {
+        width: 90%;
+    }
+    .services-list-text-container {
+        display: flex;
+        justify-self: center;
+        font: 16.8px "PT Serif";
+        line-height: 2;
+        width: 20rem;
+    }
+    .services-list-text-container li {
+        margin: 10px 0;
     }
 }
 
@@ -17,10 +69,13 @@
         grid-template-columns: 50% 1fr;
         grid-template-rows: auto;
     }
-    .services-list-card {
+    .desktop-services-list-card {
         background-color: #F7F7F7;
         margin: 8rem 5rem;
         padding: 2rem 2rem 1rem 2rem;
+    }
+    .mobile-services-list-card {
+        display: none;
     }
     .services-list-header-container {
         display: grid;
@@ -49,7 +104,7 @@
         row-gap: 20px;
         line-height: 2rem;
     }
-    .services-column > h4 {
+    .services-column-header > h4 {
         font: 27px "Crimson Text", serif;
         text-align: center;
         max-width: 275px;
@@ -58,6 +113,12 @@
     .services-column-separator {
         width: 60%;
     }
+    .services-page-title {
+        margin-top: 30px;
+    }
+    .services-content {
+        padding: 0 8%;
+    }
 }
 
 .services-page-title {
@@ -65,13 +126,11 @@
     text-align: center;
     padding: 50px 60px 55px;
     align-self: stretch;
-    margin-top: 30px;
     margin-bottom: 0px;
     color: #13263A;
 }
 
 .services-content {
-    padding: 0 8%;
     align-self: center;
     justify-content: center;
     box-sizing: inherit;
