@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/services-style.css" />
+  <script src="components/headers.js"></script>
+  <title>Alex & Asher Tech - Services</title>
+</head>
+
+<body>
+  <main>
+    <!-- TODO: turn mobile headers into custom element -->
+    <div id="navDialog" class="nav-dialog">
+      <header class="nav-dialog-header">
+        <div class="main-container">
+          <div class="search-wrapper">
+            <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20.9276 9.80206C20.9276 4.40456 16.4058 0 10.8646 0C5.32337 0 0.775391 4.40456 0.775391 9.80206C0.775391 15.1996 5.29723 19.6041 10.8384 19.6041C13.2431 19.6041 15.4387 18.7894 17.1899 17.4146L21.4765 21.59L22.9664 20.1388L18.6537 15.9888C20.0651 14.3085 20.9276 12.1444 20.9276 9.80206ZM10.8384 17.5928C6.4473 17.5928 2.86642 14.1048 2.86642 9.82752C2.86642 5.55026 6.4473 2.06225 10.8384 2.06225C15.2296 2.06225 18.8105 5.55026 18.8105 9.82752C18.8105 14.1048 15.2557 17.5928 10.8384 17.5928Z"
+                fill="black" />
+            </svg>
+          </div>
+          <h1 class="title">Alex & Asher</h1>
+          <button class="more-wrapper" onclick="closeNav()">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M27.3437 24.1625L19.1812 16L27.3437 7.83755C28.225 6.9563 28.225 5.53755 27.3437 4.6563C26.4625 3.77505 25.0437 3.77505 24.1625 4.6563L16 12.8188L7.83749 4.6563C6.95624 3.77505 5.53749 3.77505 4.65624 4.6563C3.77499 5.53755 3.77499 6.9563 4.65624 7.83755L12.8187 16L4.65624 24.1625C3.77499 25.0438 3.77499 26.4625 4.65624 27.3438C5.53749 28.225 6.95624 28.225 7.83749 27.3438L16 19.1813L24.1625 27.3438C25.0437 28.225 26.4625 28.225 27.3437 27.3438C28.2187 26.4625 28.2187 25.0375 27.3437 24.1625Z"
+                fill="black" />
+            </svg>
+          </button>
+        </div>
+      </header>
+      <div class="dialog-navigation-container">
+        <nav class="dialog-navigation">
+          <a href="#" class="nav-link">About Us</a>
+          <a href="#" class="nav-link active">Services</a>
+          <a href="#" class="nav-link">Shop</a>
+          <a href="#" class="nav-link">Book With Us/Client Hub</a>
+          <a href="#" class="nav-link">Leave A Review</a>
+        </nav>
+      </div>
+    </div>
+    <div class="services-page-container">
+      <desktop-header-component />
+      <mobile-header-component />
+
+      <section class="services-page-content">
+        <div>
+          <h2 class="services-page-title">
+            Services
+          </h2>
+        </div>
+        <div class="services-description-container">
+          <img class="services-photo" src="assets/tools-image.webp" alt="people sitting around table" />
+          <div class="services-content">
+            <p class="services-text">We offer services to help keep your specialty shop running and equipment maintained as well as training and education opportunities.</p>
+          </div>
+        </div>
+        <div class="services-list-card">
+          <div class="services-list-header-container">
+            <header class="services-column">
+              <h4>Machines, Maintenance & Repairs</h4>
+            </header>
+            <header class="services-column">
+              <h4>Training & Education</h4>
+            </header>
+            <header class="services-column">
+              <h4>Other Shop Solutions</h4>
+            </header>
+          </div>
+          <div class="services-list-separator-container">
+            <span class="services-column">
+              <hr class="services-column-separator" />
+            </span>
+            <span class="services-column">
+              <hr class="services-column-separator" />
+            </span>
+            <span class="services-column">
+              <hr class="services-column-separator" />
+            </span>
+          </div>
+          <div class="services-list-text-container">
+            <ul class="services-list">
+              <li>Coffee Machines Sales, Leasing, & Installation</li>
+              <li>Draft Line Installation & Cleaning</li>
+              <li>Preventative Maintenance Plans</li>
+              <li>Refrigeration</li>
+            </ul>
+            <ul class="services-list">
+              <li>Coffee & Barista 101 Training by Autumn Ingool (SCA Barista Skills Intermediate Certified) of Oraculum Coffee</li>
+              <li>Custom/Continuing Coffee Education Training Plans with Autumn Ingool</li>
+            </ul>
+            <ul class="services-list">
+              <li>Website Development</li>
+              <li>POS System Solutions</li>
+              <li>Inventory & Stock Solutions</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <p>© 2024&nbsp;Alex &amp; Asher</p>
+    </footer>
+  </main>
+</body>
+<!-- <script src="js/shop-page-script.js"></script> -->
+
+</html>

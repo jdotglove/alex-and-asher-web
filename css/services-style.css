@@ -1,0 +1,111 @@
+@media (max-width: 961px) {
+    .services-description-container {
+        display: grid;
+        grid-template-rows: 50% 1fr;
+        grid-template-columns: 1fr;
+        padding-bottom: 40px;
+    }
+    .services-content {
+        padding: 10px 8%;
+    }
+}
+
+@media (min-width: 962px) {
+    .services-description-container {
+        margin: 3rem 6rem 3rem;
+        display: grid;
+        grid-template-columns: 50% 1fr;
+        grid-template-rows: auto;
+    }
+    .services-list-card {
+        background-color: #F7F7F7;
+        margin: 8rem 5rem;
+        padding: 2rem 2rem 1rem 2rem;
+    }
+    .services-list-header-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .services-list-separator-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .services-list-text-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .services-column {
+        align-items: center;
+        flex-direction: column;
+        display: flex;
+    }
+    .services-list {
+        align-items: flex-start;
+        justify-self: center;
+        flex-direction: column;
+        display: flex;
+        font: 16.8px "PT Serif";
+        max-width: 300px;
+        row-gap: 20px;
+        line-height: 2rem;
+    }
+    .services-column > h4 {
+        font: 27px "Crimson Text", serif;
+        text-align: center;
+        max-width: 275px;
+        margin: 0 0;
+    }
+    .services-column-separator {
+        width: 60%;
+    }
+}
+
+.services-page-title {
+    font: 72px "Crimson Text", serif;
+    text-align: center;
+    padding: 50px 60px 55px;
+    align-self: stretch;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    color: #13263A;
+}
+
+.services-content {
+    padding: 0 8%;
+    align-self: center;
+    justify-content: center;
+    box-sizing: inherit;
+    height: auto;
+}
+
+.services-link {
+    background-color: #C86A19;
+    text-decoration: none;
+    color: white;
+    padding: 1.4rem 2.25rem;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.services-text {
+    display: block;
+    font: 44px "Crimson Text", serif;
+    margin: 35px 0;
+    font-weight: 400;
+}
+
+.services-photo {
+    justify-self: center;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1.5;
+}
+
+.services-column-separator {
+    height: 1px;
+    margin-top: 10px;
+    background-color: #13263A;
+}
