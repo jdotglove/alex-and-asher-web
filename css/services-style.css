@@ -28,6 +28,9 @@
     }
     .mobile-services-list-card {
         background-color: #F7F7F7;
+        justify-content: center;
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
         padding: 2rem 2rem 1rem 2rem;
         margin: 2rem 1rem 2rem;
     }
@@ -48,7 +51,7 @@
         display: grid;
     }
     .services-column-separator {
-        width: 90%;
+        width: 80%;
     }
     .services-list-text-container {
         display: flex;
@@ -59,6 +62,9 @@
     }
     .services-list-text-container li {
         margin: 10px 0;
+    }
+    .services-list-text-container ul {
+        width: 70%;
     }
 }
 
