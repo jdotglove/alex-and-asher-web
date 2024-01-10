@@ -297,7 +297,6 @@ body {
 .home-page-content {
     display: block;
     justify-content: center;
-    overflow-y: scroll;
 }
 
 .mission-statement-container {
