@@ -30,7 +30,7 @@ class DesktopHeader extends HTMLElement {
             background-position: -200px -300px;
             background-repeat: no-repeat;
             background-size: 1750px;
-            background-image: url("../assets/triangle.svg");
+            background-image: url("./assets/triangle.svg");
             padding-bottom: 175px;
             z-index: 3;
             position: relative;
@@ -105,7 +105,7 @@ class DesktopHeader extends HTMLElement {
       </style>
       <header class="desktop-header">
         <a class="logo-wrapper" href="index.html">
-          <img src="../assets/LogoNoBackground.svg" class="responsive-logo" alt="alex and asher logo" />
+          <img src="./assets/LogoNoBackground.svg" class="responsive-logo" alt="alex and asher logo" />
         </a>
         <section>
           <nav class="desktop-nav-v2">
@@ -274,7 +274,7 @@ class MobileHeader extends HTMLElement {
           <header class="nav-dialog-header">
             <div class="main-container">
               <a class="mobile-logo" href="./index.html">
-                <img src="../assets/NewsletterTemplate-1pg-transformed.png" alt="mobile alex and asher logo" />
+                <img src="./assets/NewsletterTemplate-1pg-transformed.png" alt="mobile alex and asher logo" />
               </a>
               <button class="close-wrapper" onclick="closeNav()">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -298,7 +298,7 @@ class MobileHeader extends HTMLElement {
         <header class="mobile-header">
           <div class="main-container">
             <a class="mobile-logo" href="./index.html">
-              <img src="../assets/NewsletterTemplate-1pg-transformed.png" alt="mobile alex and asher logo" />
+              <img src="./assets/NewsletterTemplate-1pg-transformed.png" alt="mobile alex and asher logo" />
             </a>
             <button class="more-wrapper" onclick="openNav()">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
