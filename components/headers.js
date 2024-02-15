@@ -3,19 +3,15 @@ class DesktopHeader extends HTMLElement {
   constructor() {
     super();
     this.navigationLinks = `
-      <a href="about-us.html" class="nav-link ${window.location.pathname.includes("/about-us") ? "active" : ""}">About Us</a>
+      
       <a href="services.html" class="nav-link ${window.location.pathname.includes("/services") ? "active" : ""}">Services</a>
       <a href="shop.html" class="nav-link ${window.location.pathname.includes("/shop") ? "active" : ""}">Shop</a>
-      <a
-        href="https://app.servicefusion.com/alexasher"
-        class="nav-link ${window.location.pathname.includes("/bookings") ? "active" : ""}"
-        target="_blank"
-      >Book With Us/Client Hub</a>
       <a
         href="https://www.google.com/maps/place/Alex+%26+Asher/@35.4587539,-78.5025389,8z/data=!3m1!4b1!4m6!3m5!1s0x4553d12bf734747f:0xaf76986437b14c5d!8m2!3d35.4587539!4d-78.5025389!16s%2Fg%2F11s7rg0y54?entry=ttu"
         class="nav-link ${window.location.pathname.includes("/reviews") ? "active" : ""}"
         target="_blank"
       >Leave A Review</a>
+      <a href="about-us.html" class="nav-link ${window.location.pathname.includes("/about-us") ? "active" : ""}">About Us</a>
     `
   }
 
@@ -29,33 +25,17 @@ class DesktopHeader extends HTMLElement {
         }
         @media (min-width: 962px) {
           .desktop-header {
-            max-width: 100%;
-            flex-wrap: wrap;
-            display: flex;
-            justify-content: space-evenly;
-            position: sticky;
-            top: 0;
-            background-color: white;
-            padding: 27px 38px;
+            display: grid;
+            grid-template-columns: repeat(2, 50% 50%);
+            background-position: -200px -300px;
+            background-repeat: no-repeat;
+            background-size: 1750px;
+            background-image: url("../assets/triangle.svg");
+            padding-bottom: 175px;
+            z-index: 3;
+            position: relative;
           }
-          .desktop-header .title > * {
-            white-space: nowrap;
-            text-decoration: none;
-            color: #13263a;
-          }
-          .desktop-header .description {
-            white-space: nowrap;
-          }
-          .desktop-header .nav {
-            flex-wrap: wrap;
-            justify-content: flex-end;
-          }
-          .desktop-header .main-container {
-            align-self: center;
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-          }
+
           .logo-container {
             display: flex;
             flex-shrink: 1;
@@ -69,99 +49,72 @@ class DesktopHeader extends HTMLElement {
             margin: auto 0;
             font: 400 21px "Crimson Text", serif;
           }
-          .desktop-header .logo-wrapper {
-            display: flex;
-            justify-items: center;
-            align-self: center;
-            flex-shrink: 1;
-            justify-content: space-between;
-          }
+          
         }
-        
-        .desktop-header .title {
+        .nav-link {
           color: #13263a;
-          flex-grow: 1;
-          flex-shrink: 1;
-          position: relative;
-          width: max-content;
-          font: 400 34px "Crimson Text", serif;
-          margin: 0 0 0 0;
-        }
-        .desktop-header .description {
-          color: rgba(19, 38, 58, 0.6);
-          margin: 0 0 0 0;
-          flex-shrink: 1;
-          display: flex;
-          margin-left: 20px;
-          justify-items: center;
           align-self: center;
-          position: relative;
-          font: 400 17px "Nunito Sans", sans-serif;
-        }
-
-        @media (max-width: 991px) {
-          .desktop-header .description {
-            white-space: initial;
-          }
-        }
-    
-        .desktop-header .nav-section {
-          align-self: center;
-          justify-content: flex-end;
-          display: flex;
-          gap: 20px;
-          flex-grow: 1;
-          flex-shrink: 1;
-        }
-    
-        .desktop-header .nav {
-          box-sizing: border-box;
-          display: flex;
-          align-self: center;
-          min-width: 430px;
-          padding: 0 20px;
-        }
-    
-        @media (max-width: 991px) {
-          .desktop-header .nav-link {
-            white-space: initial;
-          }
-        }
-    
-        .search-wrapper {
-          cursor: pointer;
-          display: flex;
-          object-position: center;
-          width: 22px;
-          flex-shrink: 0;
-          fill: #000;
-          overflow: hidden;
-          align-items: center;
-          max-width: 100%;
+          white-space: nowrap;
+          text-decoration: none;
+          margin: auto 0;
+          font: 400 21px "Nunito Sans", serif;
         }
         .nav-link:hover, .nav-link.active {
           text-decoration: underline;
         }
+        .desktop-nav-v2 {
+          display: flex;
+          background-color: #E29AC4;
+          gap: 15px;
+          padding-left: 50px;
+          border-radius: 50px 0 0 50px;
+          height: 100px;
+          align-items: center;
+          justify-content: space-evenly;
+          overflow-x: hidden;
+          flex-wrap: wrap;
+        }
+        .description {
+          color: rgba(19, 38, 58, 0.6);
+          margin: 0 0 0 0;
+          flex-shrink: 1;
+          display: flex;
+          justify-items: center;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 50px;
+          align-self: center;
+          font: 400 28px "Nunito Sans", sans-serif;
+          font-weight: 100;
+          width: 50%;
+          text-align: center;
+        }
+        .logo-wrapper {
+          display: flex;
+          z-index: 1;
+          align-items: flex-start;
+          align-content: flex-start;
+          align-self: flex-start;
+        }
+        .responsive-logo {
+          display: flex;
+          max-width: 100%;
+          max-height: 100%;
+          align-self: flex-start;
+        }
       </style>
       <header class="desktop-header">
-        <div class="main-container">
-          <section class="logo-wrapper">
-            <h1 class="title"><a href="index.html">Alex &amp; Asher</a></h1>
-            <p class="description">Specialty shops deserve special attention</p>
-          </section>
-          <section class="nav-section">
-            <nav class="nav">
-              ${this.navigationLinks}
-            </nav>
-            <div class="search-wrapper">
-              <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M20.9276 9.80206C20.9276 4.40456 16.4058 0 10.8646 0C5.32337 0 0.775391 4.40456 0.775391 9.80206C0.775391 15.1996 5.29723 19.6041 10.8384 19.6041C13.2431 19.6041 15.4387 18.7894 17.1899 17.4146L21.4765 21.59L22.9664 20.1388L18.6537 15.9888C20.0651 14.3085 20.9276 12.1444 20.9276 9.80206ZM10.8384 17.5928C6.4473 17.5928 2.86642 14.1048 2.86642 9.82752C2.86642 5.55026 6.4473 2.06225 10.8384 2.06225C15.2296 2.06225 18.8105 5.55026 18.8105 9.82752C18.8105 14.1048 15.2557 17.5928 10.8384 17.5928Z"
-                  fill="black" />
-              </svg>
-            </div>
-          </section>
-        </div>
+        <a class="logo-wrapper" href="index.html">
+          <img src="../assets/LogoNoBackground.svg" class="responsive-logo" alt="alex and asher logo" />
+        </a>
+        <section>
+          <nav class="desktop-nav-v2">
+            ${this.navigationLinks}
+          </nav>
+          <div class="description">
+            Specialty shops deserve special attention
+          </div>
+        </section>
       </header>
     `;
   }
@@ -179,41 +132,28 @@ class MobileHeader extends HTMLElement {
           .mobile-header {
             display: flex;
             width: 100%;
-            height: 79px;
+            height: 125px;
             position: sticky;
             top: 0;
             box-sizing: border-box;
             justify-content: space-evenly;
             z-index: 2;
           }
-          header .title {
-            color: #13263a;
-            white-space: nowrap;
-            justify-content: center;
-            text-decoration: none;
-            background-color: #fff;
-            align-self: center;
-            display: flex;
-            flex-grow: 1;
-            padding: 10px 60px;
-            margin: 0;
-            font: 400 34px "Crimson Text", serif;
-          }
           .mobile-header .main-container {
             top: 0;
             position: fixed;
-            justify-content: center;
+            justify-content: space-between;
             background-color: #fff;
             display: flex;
             width: 100%;
             box-sizing: border-box;
             flex-direction: row;
-            padding: 10px 24px;
+            padding: 12px 24px;
           }
           .nav-dialog-header .main-container {
-            padding: 10px 24px;
+            padding: 12px 24px;
             width: 100%;
-            justify-content: center;
+            justify-content: space-between;
             display: flex;
             box-sizing: border-box;
             flex-direction: row;
@@ -248,17 +188,6 @@ class MobileHeader extends HTMLElement {
             display: none;
           }
         }
-        .search-wrapper {
-          cursor: pointer;
-          display: flex;
-          object-position: center;
-          width: 22px;
-          flex-shrink: 0;
-          fill: #000;
-          overflow: hidden;
-          align-items: center;
-          max-width: 100%;
-        }
         .more-wrapper {
           cursor: pointer;
           display: flex;
@@ -267,41 +196,126 @@ class MobileHeader extends HTMLElement {
           fill: #000;
           overflow: hidden;
           align-items: center;
+          align-self: center;
           max-width: 100%;
+          height: fit-content;
           border: none;
           padding: 0;
           background-color: inherit;
         }
+        .close-wrapper {
+          cursor: pointer;
+          display: flex;
+          object-position: center;
+          flex-shrink: 0;
+          fill: #000;
+          overflow: hidden;
+          align-items: center;
+          align-self: center;
+          max-width: 100%;
+          height: fit-content;
+          border: none;
+          padding: 0;
+          background-color: inherit;
+        }
+        .nav-dialog {
+          /* Height & width depends on how you want to reveal the overlay (see JS below) */
+          height: 0;
+          width: 100%;
+          position: fixed;
+          /* Stay in place */
+          z-index: 3;
+          /* Sit on top */
+          left: 0;
+          top: 0;
+          background-color: rgb(255, 255, 255);
+          overflow-x: hidden;
+          /* Disable horizontal scroll */
+          transition: .1s;
+          /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+        }
+      
         .nav-link:hover {
           text-decoration: underline;
         }
+        .nav-dialog-header .main-container {
+          padding: 10px 24px;
+          width: 100%;
+          justify-content: space-between;
+          display: flex;
+          box-sizing: border-box;
+          flex-direction: row;
+        }
+        .nav-dialog-header .nav-link {
+          align-self: flex-start;
+        }
+        .nav-link {
+          white-space: nowrap;
+          text-decoration: none;
+          margin: auto 0;
+          font: 400 21px "Crimson Text", serif;
+        }
+        .dialog-navigation {
+          background-color: #fff;
+          display: flex;
+          width: 100%;
+          gap: 10px;
+          align-content: flex-start;
+          flex-direction: column;
+          padding: 50px 24px;
+        }
+        .dialog-navigation-container {
+          justify-content: center;
+          display: grid;
+        }
       </style>
-      <header class="mobile-header">
-      
-      <div class="main-container">
-        <div class="search-wrapper">
-          <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M20.9276 9.80206C20.9276 4.40456 16.4058 0 10.8646 0C5.32337 0 0.775391 4.40456 0.775391 9.80206C0.775391 15.1996 5.29723 19.6041 10.8384 19.6041C13.2431 19.6041 15.4387 18.7894 17.1899 17.4146L21.4765 21.59L22.9664 20.1388L18.6537 15.9888C20.0651 14.3085 20.9276 12.1444 20.9276 9.80206ZM10.8384 17.5928C6.4473 17.5928 2.86642 14.1048 2.86642 9.82752C2.86642 5.55026 6.4473 2.06225 10.8384 2.06225C15.2296 2.06225 18.8105 5.55026 18.8105 9.82752C18.8105 14.1048 15.2557 17.5928 10.8384 17.5928Z"
-              fill="black" />
-          </svg>
+      <div>
+        <div id="navDialog" class="nav-dialog">
+          <header class="nav-dialog-header">
+            <div class="main-container">
+              <a class="mobile-logo" href="./index.html">
+                <img src="../assets/NewsletterTemplate-1pg-transformed.png" alt="mobile alex and asher logo" />
+              </a>
+              <button class="close-wrapper" onclick="closeNav()">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                  d="M27.3437 24.1625L19.1812 16L27.3437 7.83755C28.225 6.9563 28.225 5.53755 27.3437 4.6563C26.4625 3.77505 25.0437 3.77505 24.1625 4.6563L16 12.8188L7.83749 4.6563C6.95624 3.77505 5.53749 3.77505 4.65624 4.6563C3.77499 5.53755 3.77499 6.9563 4.65624 7.83755L12.8187 16L4.65624 24.1625C3.77499 25.0438 3.77499 26.4625 4.65624 27.3438C5.53749 28.225 6.95624 28.225 7.83749 27.3438L16 19.1813L24.1625 27.3438C25.0437 28.225 26.4625 28.225 27.3437 27.3438C28.2187 26.4625 28.2187 25.0375 27.3437 24.1625Z"
+                  fill="black" />
+                </svg>
+              </button>
+            </div>
+          </header>
+          <div class="dialog-navigation-container">
+            <nav class="dialog-navigation">
+              <a href="./about-us.html" class="nav-link">About Us</a>
+              <a href="./services.html" class="nav-link">Services</a>
+              <a href="./shop.html" class="nav-link">Shop</a>
+              <a href="https://www.google.com/maps/place/Alex+%26+Asher/@35.4587539,-78.5025389,8z/data=!3m1!4b1!4m6!3m5!1s0x4553d12bf734747f:0xaf76986437b14c5d!8m2!3d35.4587539!4d-78.5025389!16s%2Fg%2F11s7rg0y54?entry=ttu"
+                class="nav-link" target="_blank">Leave A Review</a>
+            </nav>
+          </div>
         </div>
-        <h1 class="title"><a href="index.html">Alex & Asher</a></h1>
-        <button class="more-wrapper" onclick="openNav()">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M5.07 20.5701C7.59394 20.5701 9.64 18.524 9.64 16.0001C9.64 13.4761 7.59394 11.4301 5.07 11.4301C2.54606 11.4301 0.5 13.4761 0.5 16.0001C0.5 18.524 2.54606 20.5701 5.07 20.5701Z"
-              fill="black" />
-            <path
-              d="M16 20.5701C18.5239 20.5701 20.57 18.524 20.57 16.0001C20.57 13.4761 18.5239 11.4301 16 11.4301C13.4761 11.4301 11.43 13.4761 11.43 16.0001C11.43 18.524 13.4761 20.5701 16 20.5701Z"
-              fill="black" />
-            <path
-              d="M26.93 20.5701C29.4539 20.5701 31.5 18.524 31.5 16.0001C31.5 13.4761 29.4539 11.4301 26.93 11.4301C24.4061 11.4301 22.36 13.4761 22.36 16.0001C22.36 18.524 24.4061 20.5701 26.93 20.5701Z"
-              fill="black" />
-          </svg>
-        </button>
+        <header class="mobile-header">
+          <div class="main-container">
+            <a class="mobile-logo" href="./index.html">
+              <img src="../assets/NewsletterTemplate-1pg-transformed.png" alt="mobile alex and asher logo" />
+            </a>
+            <button class="more-wrapper" onclick="openNav()">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                d="M5.07 20.5701C7.59394 20.5701 9.64 18.524 9.64 16.0001C9.64 13.4761 7.59394 11.4301 5.07 11.4301C2.54606 11.4301 0.5 13.4761 0.5 16.0001C0.5 18.524 2.54606 20.5701 5.07 20.5701Z"
+                fill="black" />
+                <path
+                d="M16 20.5701C18.5239 20.5701 20.57 18.524 20.57 16.0001C20.57 13.4761 18.5239 11.4301 16 11.4301C13.4761 11.4301 11.43 13.4761 11.43 16.0001C11.43 18.524 13.4761 20.5701 16 20.5701Z"
+                fill="black" />
+                <path
+                d="M26.93 20.5701C29.4539 20.5701 31.5 18.524 31.5 16.0001C31.5 13.4761 29.4539 11.4301 26.93 11.4301C24.4061 11.4301 22.36 13.4761 22.36 16.0001C22.36 18.524 24.4061 20.5701 26.93 20.5701Z"
+                fill="black" />
+              </svg>
+            </button>
+          </div>
+        </header>
       </div>
-    </header>
     `;
   }
 }

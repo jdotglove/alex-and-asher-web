@@ -12,11 +12,11 @@
         display: none;
     }
     .mobile-about-jordon-container {
-        background-color: #FFF3E4;
+        background-color: #A87FB9;
         padding: 17px;
     }
     .mobile-about-autumn-container {
-        background-color: #FFF3E4;
+        background-color: #ADD58D;
         padding: 17px;
         margin-top: 60px;
     }
@@ -70,8 +70,8 @@
 @media (min-width: 962px) {
     .about-us-page-title {
         font: 72px "Crimson Text", serif;
-        padding: 50px 60px 55px;
-        margin-top: 30px;
+        padding: 0px 60px 55px;
+        margin-top: 0px;
     }
     .about-us-description-text {
         padding-right: 32px;
@@ -113,14 +113,7 @@
     }
     
     .desktop-about-jordon-container {
-        background-color: #FFF3E4;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 1;
-        padding: 17px;
-    }
-    .desktop-about-autumn-container {
-        background-color: #FFF3E4;
+        background-color: #A87FB9;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1;
@@ -156,7 +149,6 @@
     .jordon-info-text > p {
         margin-top: 0;
         font: 16.8px "PT Serif";
-        color: #434A56;
         line-height: 1.75;
         max-width: 602px;
     }
@@ -166,7 +158,7 @@
         row-gap: 20px;
     }
     .desktop-about-autumn-container {
-        background-color: #FFF3E4;
+        background-color: #ADD58D;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1;
@@ -193,7 +185,6 @@
 
 .about-us-description-text {
     font: 20px "PT Serif";
-    color: #434A56;
     line-height: 2;
 }
 
@@ -231,7 +222,6 @@
 .jordon-info-text > p {
     margin-top: 0;
     font: 16.8px "PT Serif";
-    color: #434A56;
     line-height: 1.75;
     max-width: 602px;
 }
@@ -239,14 +229,6 @@
 .jordon-info-text {
     display: grid;
     row-gap: 20px;
-}
-.about-autumn-container {
-    background-color: #FFF3E4;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1;
-    padding: 17px;
-    margin-top: 60px;
 }
 
 .autumn-pic {
