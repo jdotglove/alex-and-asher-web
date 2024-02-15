@@ -1,12 +1,9 @@
 body {
-    color: #13263A
+    color: #13263A;
+    margin: 0;
 }
 
 @media (max-width: 961px) {
-    .desktop-header {
-        display: none;
-    }
-
     .mobile-header {
         display: flex;
         width: 100%;
@@ -16,7 +13,6 @@ body {
         box-sizing: border-box;
         justify-content: space-evenly;
     }
-
     header .title {
         white-space: nowrap;
         justify-content: center;
@@ -29,7 +25,6 @@ body {
         margin: 0;
         font: 400 34px "Crimson Text", serif;
     }
-
     .mobile-header .main-container {
         top: 0;
         position: fixed;
@@ -42,40 +37,6 @@ body {
         padding: 10px 24px;
     }
 
-    .nav-dialog-header .main-container {
-        padding: 10px 24px;
-        width: 100%;
-        justify-content: center;
-        display: flex;
-        box-sizing: border-box;
-        flex-direction: row;
-    }
-
-    .nav-dialog-header .nav-link {
-        align-self: flex-start;
-    }
-
-    .nav-link {
-        white-space: nowrap;
-        text-decoration: none;
-        margin: auto 0;
-        font: 400 21px "Crimson Text", serif;
-    }
-
-    .dialog-navigation {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .dialog-navigation {
-        background-color: #fff;
-        display: flex;
-        width: 100%;
-        gap: 10px;
-        align-content: flex-start;
-        flex-direction: column;
-        padding: 50px 24px;
-    }
 
     .logo-container {
         display: flex;
@@ -108,82 +69,16 @@ body {
         width: 90%;
     }
 
-    .about-us-container {
-        display: grid;
-        grid-template-rows: 50% 1fr;
-        grid-template-columns: 1fr;
-        padding-bottom: 40px;
-    }
-    .our-services-container {
-        display: grid;
-        grid-template-rows: 50% 1fr;
-        grid-template-columns: 1fr;
-        padding-bottom: 40px;
-    }
-
-    .our-services-photo {
-        order: 0;
-    }
-    .our-services-content {
-        order: 1;
-    }
-    .about-us-content {
-        padding: 10px 8%;
-    }
+   
 
 }
 
 @media (min-width: 962px) {
-    .mobile-header {
-        display: none;
-    }
-
-    .desktop-header {
-        max-width: 100%;
-        flex-wrap: wrap;
-        display: flex;
-        justify-content: space-evenly;
-        position: sticky;
-        top: 0;
-        background-color: white;
-        padding: 27px 38px;
-    }
-
-    .desktop-header .title > * {
-        white-space: nowrap;
-        text-decoration: none;
-    }
-
-    .desktop-header .description {
-        white-space: nowrap;
-    }
-
-    .desktop-header .nav {
-        flex-wrap: wrap;
-        justify-content: flex-end;
-    }
-
-    .desktop-header .main-container {
-        align-self: center;
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-    }
-
     .logo-container {
         display: flex;
         flex-shrink: 1;
         justify-content: center;
     }
-
-    .desktop-header .nav-link {
-        align-self: center;
-        white-space: nowrap;
-        text-decoration: none;
-        margin: auto 0;
-        font: 400 21px "Crimson Text", serif;
-    }
-
     .logo {
         box-sizing: inherit;
         max-width: 100%;
@@ -202,239 +97,16 @@ body {
         width: 50%;
     }
 
-    .desktop-header .logo-wrapper {
-        display: flex;
-        justify-items: center;
-        align-self: center;
-        flex-shrink: 1;
-        justify-content: space-between;
-    }
-    .about-us-container {
-        margin: 6rem 5rem;
-        display: grid;
-        grid-template-columns: 50% 1fr;
-        grid-template-rows: auto;
-    }
-    .our-services-container {
-        margin: 6rem 5rem;
-        display: grid;
-        grid-template-columns: 50% 1fr;
-        grid-template-rows: auto;
-    }
 }
 
-.about-us-content {
-    padding: 0 8%;
-    align-self: center;
-    justify-content: center;
-    box-sizing: inherit;
-    height: auto;
-}
 
-.about-us-link {
-    background-color: #C86A19;
-    text-decoration: none;
-    color: white;
-    padding: 1.4rem 2.25rem;
-    border-radius: 4px;
-    display: inline-block;
-    position: relative;
-    font-size: 1.3rem;
-    font-weight: 500;
-}
 
-.about-us-heading {
-    display: block;
-    font: 35px "Crimson Text", serif;
-    margin: 35px 0;
-}
-
-.about-us-photo {
-    justify-self: center;
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1.5;
-}
-
-.our-services-content {
-    padding: 0 8%;
-    align-self: center;
-    justify-content: center;
-    box-sizing: inherit;
-    display: block;
-    height: auto;
-}
-
-.our-services-link {
-    background-color: #C86A19;
-    text-decoration: none;
-    color: white;
-    padding: 1.4rem 2.25rem;
-    border-radius: 4px;
-    display: inline-block;
-    position: relative;
-    font-size: 1.3rem;
-    font-weight: 500;
-}
-
-.our-services-heading {
-    display: block;
-    font: 35px "Crimson Text", serif;
-}
-
-.our-services-text {
-    font: 24px "PT Serif";
-    color: #434A56;
-    line-height: 1.5;
-}
-
-.our-services-photo {
-    justify-self: center;
-    width: 100%;
-    height: 100%;
-}
-
-.home-page-content {
-    display: block;
-    justify-content: center;
-}
-
-.mission-statement-container {
-    font: 400 19px "PT Serif";
-    text-align: center;
-    justify-content: center;
-    white-space: break-spaces;
-    display: flex;
-}
-
-.mission-statement {
-    display: flex;
-    margin-top: 0;
-    justify-content: center;
-    margin-bottom: 0;
-    line-height: 2;
-    color: #434A56
-}
-
-.contact-info-container {
-    font: 400 19px "PT Serif";
-    justify-content: center;
-    justify-items: center;
-    white-space: break-spaces;
-    display: flex;
-}
 .separator {
     height: 1px;
     margin-top: 10px;
     background-color: #13263A;
 }
-.contact-info {
-    display: flex;
-    justify-content: center;
-    line-height: 2;
-    color: #434A56
-}
 
-
-
-.nav-dialog {
-    /* Height & width depends on how you want to reveal the overlay (see JS below) */
-    height: 0;
-    width: 100%;
-    position: fixed;
-    /* Stay in place */
-    z-index: 3;
-    /* Sit on top */
-    left: 0;
-    top: 0;
-    background-color: rgb(255, 255, 255);
-    overflow-x: hidden;
-    /* Disable horizontal scroll */
-    transition: .1s;
-    /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-}
-
-.desktop-header .title {
-    color: #13263a;
-    flex-grow: 1;
-    flex-shrink: 1;
-    position: relative;
-    width: max-content;
-    font: 400 34px "Crimson Text", serif;
-    margin: 0 0 0 0;
-}
-
-
-.desktop-header .description {
-    color: rgba(19, 38, 58, 0.6);
-    margin: 0 0 0 0;
-    flex-shrink: 1;
-    display: flex;
-    margin-left: 20px;
-    justify-items: center;
-    align-self: center;
-    position: relative;
-    font: 400 17px "Nunito Sans", sans-serif;
-}
-
-@media (max-width: 991px) {
-    .desktop-header .description {
-        white-space: initial;
-    }
-}
-
-.desktop-header .nav-section {
-    align-self: center;
-    justify-content: flex-end;
-    display: flex;
-}
-
-.desktop-header .nav {
-    box-sizing: border-box;
-    display: flex;
-    flex-shrink: 2;
-    justify-items: center;
-    align-self: center;
-    min-width: 430px;
-    gap: 30px;
-    padding: 0 20px;
-}
-
-@media (max-width: 991px) {
-    .desktop-header .nav-link {
-        white-space: initial;
-    }
-}
-
-.search-wrapper {
-    cursor: pointer;
-    display: flex;
-    object-position: center;
-    width: 22px;
-    flex-shrink: 0;
-    fill: #000;
-    overflow: hidden;
-    align-items: center;
-    max-width: 100%;
-}
-
-.more-wrapper {
-    cursor: pointer;
-    display: flex;
-    object-position: center;
-    flex-shrink: 0;
-    fill: #000;
-    overflow: hidden;
-    align-items: center;
-    max-width: 100%;
-    border: none;
-    padding: 0;
-    background-color: inherit;
-}
-
-.nav-link:hover {
-    text-decoration: underline;
-}
 .main-container .title a {
     color: #13263A;
     text-decoration: none;

@@ -1,0 +1,365 @@
+@media (max-width: 961px) {
+    .about-us-container-v2 {
+        display: grid;
+        grid-template-rows: 50% 1fr;
+        grid-template-columns: 1fr;
+        padding-bottom: 40px;
+    }
+
+    .our-services-container-v2 {
+        display: grid;
+        grid-template-rows: 50% 1fr;
+        grid-template-columns: 1fr;
+        padding-bottom: 40px;
+    }
+
+    .our-partners-container-v2 {
+        display: grid;
+
+    }
+
+    .home-page-separator {
+        width: 90%;
+        margin-bottom: 30px;
+    }
+
+    .our-partners-content {
+        display: grid;
+    }
+
+    .home-page-image-container {
+        display: none;
+    }
+
+    .parallax {
+        /* The image used */
+        background-image: url("../assets/2024_NewsletterTemplate-1pg-1-transformed.png");
+
+        /* Set a specific height */
+        height: 300px;
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .about-us-container {
+        display: grid;
+        grid-template-rows: 50% 1fr;
+        grid-template-columns: 1fr;
+        padding-bottom: 40px;
+    }
+    .our-services-container {
+        display: grid;
+        grid-template-rows: 50% 1fr;
+        grid-template-columns: 1fr;
+        padding-bottom: 40px;
+    }
+
+    .our-services-photo {
+        order: 0;
+    }
+    .our-services-content {
+        order: 1;
+        margin-bottom: 10rem;
+    }
+    .about-us-content {
+        padding: 10px 8%;
+    }
+    .mission-hero {
+        background-color: #A87FB9;
+        height: 85vh;
+        gap: 75px;
+    }
+    .our-services-text {
+        margin-top: 0px;
+    }
+    .our-services-heading {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    .mission-statement-container-v2 {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .mission-statement-v2 {
+        font: 800 24px "Nunito Sans";
+    }
+}
+
+@media (min-width: 962px) {
+    .about-us-container-v2 {
+        padding: 8rem 6rem;
+        margin-top: 20rem;
+        display: grid;
+        grid-template-columns: 50% 1fr;
+        grid-template-rows: auto;
+    }
+
+    .our-services-container-v2 {
+        padding: 8rem 6rem;
+        margin-top: 20rem;
+        display: grid;
+        grid-template-columns: 50% 1fr;
+        grid-template-rows: auto;
+    }
+
+    .our-partners-container-v2 {
+        padding: 8rem 6rem;
+        margin-top: 20rem;
+
+    }
+
+    .home-page-separator {
+        width: 50%;
+    }
+
+    .our-partners-content {
+        display: flex;
+    }
+
+    .home-page-image-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 100px;
+        z-index: -20;
+        position: relative;
+    }
+
+    .home-page-image-container>img {
+        width: 300px;
+        height: auto;
+    }
+
+    .parallax {
+        display: none;
+    }
+
+
+    .about-us-container {
+        margin: 6rem 5rem;
+        display: grid;
+        grid-template-columns: 50% 1fr;
+        grid-template-rows: auto;
+    }
+    .our-services-container {
+        margin: 6rem 5rem;
+        display: grid;
+        grid-template-columns: 50% 1fr;
+        grid-template-rows: auto;
+    }
+    .mission-statement-container-v2 {
+        padding-right: 50px;
+    }
+    .mission-hero {
+        gap: 100px;
+    }
+    .mission-statement-v2 {
+        font: 400 19px "Nunito Sans";
+    }
+}
+
+.about-us-button-v2 {
+    background-color: #A87FB9;
+    border: none;
+    color: white;
+    padding: 1.4rem 2.25rem;
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.about-us-heading {
+    display: block;
+    font: 35px "Crimson Text", serif;
+    margin: 35px 0;
+}
+
+.about-us-photo {
+    justify-self: center;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1.5;
+}
+
+.about-us-content {
+    padding: 0 8%;
+    align-self: center;
+    justify-content: center;
+    box-sizing: inherit;
+    height: auto;
+}
+
+
+
+.our-services-button-v2 {
+    background-color: #5FBBFF;
+    border: none;
+    color: white;
+    padding: 1.4rem 2.25rem;
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.about-us-container-v2 {
+    background-color: #5FBBFF;
+}
+
+.our-services-container-v2 {
+    background-color: #A87FB9;
+}
+
+.our-partners-container-v2 {
+    background-color: #ADD58D;
+}
+
+.our-partners-content {
+    gap: 6rem;
+    padding-top: 4rem;
+    justify-content: center;
+}
+
+.our-partners-heading {
+    font-size: 4rem;
+    text-align: center;
+    font-weight: lighter;
+    margin: 3rem;
+}
+
+.home-page-separator {
+    height: 2px;
+    margin-top: 10px;
+    background-color: #13263A;
+    border: none;
+}
+
+.our-services-photo {
+    justify-self: center;
+    width: 100%;
+    height: 100%;
+}
+
+.our-services-heading {
+    display: block;
+    font: 35px "Crimson Text", serif;
+}
+
+.our-services-text {
+    font: 24px "PT Serif";
+    line-height: 1.5;
+}
+
+.our-services-content {
+    padding-left: 8%;
+    padding-right: 8%;
+    align-self: center;
+    justify-content: center;
+    box-sizing: inherit;
+    display: block;
+    height: auto;
+}
+
+img.partner-logo {
+    width: 150px;
+    cursor: pointer;
+}
+
+a>img.partner-logo:hover {
+    box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 1376px) {
+    .mission-hero {
+        display: flex;
+    }
+
+    .mission-statement-container-v2 {
+        width: 70dvw;
+        padding-top: 110px;
+        padding-bottom: 110px;
+    }
+}
+
+@media (max-width: 1375px ) {
+    .mission-hero {
+        display: grid;
+    }
+
+    .mission-statement-container-v2 {
+        width: fit-content;
+        justify-self: center;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .mission-statement-v2 {
+        align-items: center;
+    }
+}
+
+.home-page-content {
+    display: block;
+    justify-content: center;
+}
+
+.mission-statement-container-v2 {
+    background-image: url("../assets/abstract-vector.svg");
+    background-repeat: no-repeat;
+    height: 100%;
+    position: relative;
+    background-size: 1000px;
+    overflow: visible;
+    background-position: center center;
+    
+    justify-content: center;
+    display: flex;
+}
+
+.mission-hero {
+    white-space: break-spaces;
+}
+
+.mission-hero-button {
+    background-color: #5FBBFF;
+    border-radius: 50px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+    border: none;
+    font: 400 19px "Nunito Sans";
+    height: 80px;
+    color: white;
+    cursor: pointer;
+}
+
+.mission-hero-button-container {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    text-decoration: none;
+    height: fit-content;
+}
+
+.mission-hero-button:hover {
+    opacity: 0.70;
+}
+
+.mission-statement-v2 {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    white-space: break-spaces;
+    margin-top: 0;
+    width: 75%;
+    height: fit-content;
+}
+
