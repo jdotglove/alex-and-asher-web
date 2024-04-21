@@ -1,3 +1,16 @@
+.quadrant-title h4 {
+    position: relative;
+    font: normal bold 3.5lvw/1.25 'PT Serif';
+    letter-spacing: 2.5px;
+    top: 40px;
+    width: fit-content;
+    margin: 0;
+    padding: 5px;
+    margin-left:25px;
+    margin-right: 25px;
+    border-radius: 20px;
+}
+
 @media (max-width: 961px) {
     .services-container-v3 > div {
         position: absolute;
@@ -22,6 +35,11 @@
         margin-bottom: 30px;
     }
 
+    .quadrant-title h4 {
+        padding: 20px;
+        margin: 0;
+    }
+
     .our-partners-content {
         display: grid;
     }
@@ -42,6 +60,24 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+
+    .mission-statement-v2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        border-radius: 10%;
+        background-color: #A87FB9;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        color: white;
+      }
+
+    .home-page-cta {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        justify-content: space-evenly;
+        z-index: -20;
     }
 
     .about-us-container {
@@ -73,6 +109,19 @@
         z-index: 0;
     }
 
+    .mission-statement-v2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-color: #A87FB9;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        color: white;
+      }
+
     .services-container-v3 > div.active{
         width: 100%;
         height: 100%;
@@ -95,7 +144,7 @@
         display: flex;
     }
 
-    .home-page-image-container {
+    .home-page-cta {
         display: grid;
         grid-template-columns: 30lvw 1fr 30lvw;
         justify-content: space-evenly;
@@ -286,18 +335,7 @@ a>img.partner-logo:hover {
     opacity: 0.70;
 }
 
-.mission-statement-v2 {
-    display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background-color: #A87FB9;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  color: white;
-}
+
 
 #topLeft {
     top: 0;
@@ -380,20 +418,7 @@ a>img.partner-logo:hover {
     height: 150px;
 }
 
-.quadrant-title h4 {
-    position: relative;
-    font: normal bold 3.5lvw/1.25 'PT Serif';
-    letter-spacing: 2.5px;
-    top: 40px;
-    width: fit-content;
-    margin: 0;
-    padding: 5px;
-    margin-left:25px;
-    margin-right: 25px;
-   
-    border-radius: 20px;
-   
-}
+
 
 .mySlides {
     display: none
