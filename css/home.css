@@ -66,6 +66,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
         padding: 30px;
         border-radius: 10%;
         background-color: #A87FB9;
@@ -116,6 +117,7 @@
         padding: 30px;
         width: 300px;
         height: 300px;
+        text-align: center;
         border-radius: 50%;
         background-color: #A87FB9;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -131,7 +133,7 @@
  
 
     .our-partners-container-v2 {
-        padding: 8rem 6rem;
+        padding: 0;
         margin-top: 20rem;
 
     }
@@ -154,6 +156,10 @@
     .home-page-image-container>img {
         width: 300px;
         height: auto;
+    }
+
+    .home-page-image-container {
+        margin: auto;
     }
 
     .mobile-parallax {
@@ -229,6 +235,8 @@
 
 .our-partners-container-v2 {
     background-color: #ADD58D;
+    border: #FFFFFF solid;
+    height: 522px;
 }
 
 .our-partners-content {
@@ -239,9 +247,10 @@
 
 .our-partners-heading {
     font-size: 4rem;
+    padding-top: 20px;
     text-align: center;
     font-weight: lighter;
-    margin: 3rem;
+    margin: 0;
 }
 
 .home-page-separator {
@@ -252,8 +261,8 @@
 }
 
 img.partner-logo {
-    width: 37lvw;
-    height: 37lvw;
+    width: 25lvw;
+    height: 25lvw;
     cursor: pointer;
 }
 
@@ -275,6 +284,7 @@ a>img.partner-logo:hover {
     }
 
     .mission-statement-container-v2 {
+        justify-content: center;
         width: 100%;
         justify-self: center;
         padding-bottom: 50px;
@@ -323,6 +333,7 @@ a>img.partner-logo:hover {
 
 .mission-hero-button-container {
     display: flex;
+    justify-self: center;
     align-self: center;
     gap: 20px;
     padding: 20px;

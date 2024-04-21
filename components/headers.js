@@ -4,6 +4,7 @@ class DesktopHeader extends HTMLElement {
     super();
     this.navigationLinks = `
       <a href="./index.html" class="nav-link ${window.location.pathname.includes("/index") ? "active" : ""}">Home</a>
+      <a href="./about-us.html" class="nav-link ${window.location.pathname.includes("/about-us") ? "active" : ""}">About Us</a>
       <a href="./services.html" class="nav-link ${window.location.pathname.includes("/services") ? "active" : ""}">Services</a>
       <a href="./shop.html" class="nav-link ${window.location.pathname.includes("/shop") ? "active" : ""}">Shop</a>
       <a
@@ -11,7 +12,6 @@ class DesktopHeader extends HTMLElement {
         class="nav-link ${window.location.pathname.includes("/reviews") ? "active" : ""}"
         target="_blank"
       >Leave A Review</a>
-      <a href="./about-us.html" class="nav-link ${window.location.pathname.includes("/about-us") ? "active" : ""}">About Us</a>
     `
   }
 
@@ -111,9 +111,6 @@ class DesktopHeader extends HTMLElement {
           <nav class="desktop-nav-v2">
             ${this.navigationLinks}
           </nav>
-          <div class="description">
-            Specialty shops deserve special attention
-          </div>
         </section>
       </header>
     `;
