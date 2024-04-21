@@ -3,15 +3,15 @@ class DesktopHeader extends HTMLElement {
   constructor() {
     super();
     this.navigationLinks = `
-      
-      <a href="services.html" class="nav-link ${window.location.pathname.includes("/services") ? "active" : ""}">Services</a>
-      <a href="shop.html" class="nav-link ${window.location.pathname.includes("/shop") ? "active" : ""}">Shop</a>
+      <a href="../pages/index.html" class="nav-link ${window.location.pathname.includes("/index") ? "active" : ""}">Home</a>
+      <a href="../pages/services.html" class="nav-link ${window.location.pathname.includes("/services") ? "active" : ""}">Services</a>
+      <a href="../pages/shop.html" class="nav-link ${window.location.pathname.includes("/shop") ? "active" : ""}">Shop</a>
       <a
         href="https://www.google.com/maps/place/Alex+%26+Asher/@35.4587539,-78.5025389,8z/data=!3m1!4b1!4m6!3m5!1s0x4553d12bf734747f:0xaf76986437b14c5d!8m2!3d35.4587539!4d-78.5025389!16s%2Fg%2F11s7rg0y54?entry=ttu"
         class="nav-link ${window.location.pathname.includes("/reviews") ? "active" : ""}"
         target="_blank"
       >Leave A Review</a>
-      <a href="about-us.html" class="nav-link ${window.location.pathname.includes("/about-us") ? "active" : ""}">About Us</a>
+      <a href="../pages/about-us.html" class="nav-link ${window.location.pathname.includes("/about-us") ? "active" : ""}">About Us</a>
     `
   }
 
@@ -30,7 +30,7 @@ class DesktopHeader extends HTMLElement {
             background-position: -200px -300px;
             background-repeat: no-repeat;
             background-size: 1750px;
-            background-image: url("./assets/triangle.svg");
+            background-image: url("../assets/triangle.svg");
             padding-bottom: 175px;
             z-index: 3;
             position: relative;
@@ -105,7 +105,7 @@ class DesktopHeader extends HTMLElement {
       </style>
       <header class="desktop-header">
         <a class="logo-wrapper" href="index.html">
-          <img src="./assets/LogoNoBackground.svg" class="responsive-logo" alt="alex and asher logo" />
+          <img src="../assets/LogoNoBackground.svg" class="responsive-logo" alt="alex and asher logo" />
         </a>
         <section>
           <nav class="desktop-nav-v2">
@@ -274,7 +274,7 @@ class MobileHeader extends HTMLElement {
           <header class="nav-dialog-header">
             <div class="main-container">
               <a class="mobile-logo" href="./index.html">
-                <img src="./assets/NewsletterTemplate-1pg-transformed.png" alt="mobile alex and asher logo" />
+                <img src="../assets/NewsletterTemplate-1pg-transformed.png" alt="mobile alex and asher logo" />
               </a>
               <button class="close-wrapper" onclick="closeNav()">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -287,9 +287,10 @@ class MobileHeader extends HTMLElement {
           </header>
           <div class="dialog-navigation-container">
             <nav class="dialog-navigation">
-              <a href="./about-us.html" class="nav-link">About Us</a>
-              <a href="./services.html" class="nav-link">Services</a>
-              <a href="./shop.html" class="nav-link">Shop</a>
+              <a href="../pages/index.html" class="nav-link">Home</a>
+              <a href="../pages/about-us.html" class="nav-link">About Us</a>
+              <a href="../pages/services.html" class="nav-link">Services</a>
+              <a href="../pages/shop.html" class="nav-link">Shop</a>
               <a href="https://www.google.com/maps/place/Alex+%26+Asher/@35.4587539,-78.5025389,8z/data=!3m1!4b1!4m6!3m5!1s0x4553d12bf734747f:0xaf76986437b14c5d!8m2!3d35.4587539!4d-78.5025389!16s%2Fg%2F11s7rg0y54?entry=ttu"
                 class="nav-link" target="_blank">Leave A Review</a>
             </nav>
@@ -297,8 +298,8 @@ class MobileHeader extends HTMLElement {
         </div>
         <header class="mobile-header">
           <div class="main-container">
-            <a class="mobile-logo" href="./index.html">
-              <img src="./assets/NewsletterTemplate-1pg-transformed.png" alt="mobile alex and asher logo" />
+            <a class="mobile-logo" href="../pages/index.html">
+              <img src="../assets/NewsletterTemplate-1pg-transformed.png" alt="mobile alex and asher logo" />
             </a>
             <button class="more-wrapper" onclick="openNav()">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

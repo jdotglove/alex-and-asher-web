@@ -2,6 +2,9 @@ body {
     color: #13263A;
     margin: 0;
 }
+html, body {
+    height: 100%;
+  }
 
 @media (max-width: 961px) {
     .mobile-header {

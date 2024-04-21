@@ -41,11 +41,15 @@
     }
     .about-jordon-text-container h4 {
         font: 40px "Crimson Text", serif;
+        display: flex;
+        align-items: center;
         margin-top: 0;
         margin-bottom: 32px;
     }
     .about-autumn-text-container h4 {
         font: 40px "Crimson Text", serif;
+        display: flex;
+        align-items: center;
         margin-top: 0;
         margin-bottom: 32px;
     }
@@ -54,7 +58,7 @@
         padding-left: 24px;
     }
     .about-team-container {
-        margin: 1rem;
+        margin: 0rem;
     }
     .about-jordon-header {
         display: grid;
@@ -104,7 +108,7 @@
     }
     
     .about-team-container {
-        margin: 2rem 4rem 7rem 4rem;
+        margin: 0;
     }
     
     .about-team-container > h3 {
@@ -117,7 +121,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1;
-        padding: 17px;
+        padding: 32px;
     }
     .mobile-about-jordon-container {
         display: none;
@@ -162,7 +166,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1;
-        padding: 17px;
+        padding: 32px;
         margin-top: 60px;
     }
     
