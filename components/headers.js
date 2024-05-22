@@ -7,11 +7,6 @@ class DesktopHeader extends HTMLElement {
       <a href="services.html" class="nav-link ${window.location.pathname.includes("/services") ? "active" : ""}">Services</a>
       <a href="shop.html" class="nav-link ${window.location.pathname.includes("/shop") ? "active" : ""}">Shop</a>
       <a
-        href="https://app.servicefusion.com/alexasher"
-        class="nav-link ${window.location.pathname.includes("/bookings") ? "active" : ""}"
-        target="_blank"
-      >Book With Us/Client Hub</a>
-      <a
         href="https://www.google.com/maps/place/Alex+%26+Asher/@35.4587539,-78.5025389,8z/data=!3m1!4b1!4m6!3m5!1s0x4553d12bf734747f:0xaf76986437b14c5d!8m2!3d35.4587539!4d-78.5025389!16s%2Fg%2F11s7rg0y54?entry=ttu"
         class="nav-link ${window.location.pathname.includes("/reviews") ? "active" : ""}"
         target="_blank"
