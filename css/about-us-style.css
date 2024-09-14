@@ -11,6 +11,9 @@
     .desktop-about-autumn-container {
         display: none;
     }
+    .desktop-about-jarod-container {
+        display: none;
+    }
     .mobile-about-jordon-container {
         background-color: #FFF3E4;
         padding: 17px;
@@ -20,7 +23,11 @@
         padding: 17px;
         margin-top: 60px;
     }
-    
+    .mobile-about-jarod-container {
+        background-color: #FFF3E4;
+        padding: 17px;
+        margin-top: 60px;
+    }
     .about-us-page-title {
         font: 50px "Crimson Text", serif;
         padding: 25px 30px;
@@ -49,6 +56,11 @@
         margin-top: 0;
         margin-bottom: 32px;
     }
+    .about-jarod-text-container h4 {
+        font: 40px "Crimson Text", serif;
+        margin-top: 0;
+        margin-bottom: 32px;
+    }
     .about-team-container > h3 {
         font: 31px "Crimson Text", serif;
         padding-left: 24px;
@@ -64,7 +76,10 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
-    
+    .about-jarod-header {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (min-width: 962px) {
@@ -132,6 +147,9 @@
     .mobile-about-autumn-container {
         display: none;
     }
+    .mobile-about-jarod-container {
+        display: none;
+    }
     .jordon-pic {
         max-width: 100%;
         max-height: 60lvw;
@@ -188,6 +206,41 @@
     .about-autumn-text-container {
         height: fit-content;
         align-self: center;
+    }
+    .desktop-about-jarod-container {
+        background-color: #FFF3E4;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1;
+        padding: 17px;
+        margin-top: 60px;
+    }
+    
+    .jarod-pic {
+        max-width: 100%;
+        max-height: 60lvw;
+    }
+    
+    .about-jarod-text-container > h4 {
+        font: 56.5px "Crimson Text", serif;
+        margin-top: 0;
+        margin-bottom: 32px;
+    }
+    
+    .about-jarod-text-container {
+        height: fit-content;
+        align-self: center;
+    }
+    .jarod-info-text {
+        display: grid;
+        row-gap: 20px;
+    }
+    .jarod-info-text > p {
+        margin-top: 0;
+        font: 16.8px "PT Serif";
+        color: #434A56;
+        line-height: 1.75;
+        max-width: 602px;
     }
 }
 

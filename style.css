@@ -241,6 +241,7 @@ body {
     position: relative;
     font-size: 1.3rem;
     font-weight: 500;
+    z-index: -1;
 }
 
 .about-us-heading {
@@ -275,6 +276,7 @@ body {
     position: relative;
     font-size: 1.3rem;
     font-weight: 500;
+    z-index: -1;
 }
 
 .our-services-heading {
