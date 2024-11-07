@@ -1,3 +1,9 @@
 {
-    "cleanUrls": true
+  "rewrites": [
+    { "source": "/about-us", "destination": "/about-us.html" },
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/shop", "destination": "/shop.html" },
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/user-agreement", "destination": "user-agreement.html" }
+  ]
 }

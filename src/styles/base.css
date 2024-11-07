@@ -1,0 +1,201 @@
+/* Root Variables */
+:root {
+  --color-primary: #a87fb9; /* Soft purple */
+  --color-secondary: #5fbbff; /* Bright blue */
+  --color-accent: #add58d; /* Soft green */
+  --color-bg: #1e1e2f; /* Dark base background */
+  --color-text-light: #ffffff; /* Light text color */
+  --focus-color: #ffab00; /* Bright orange focus */
+  --border-radius: 12px;
+  --spacing: 1.5rem;
+}
+
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-light);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Background Geometric Shapes */
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+body::before {
+  width: 300px;
+  height: 300px;
+  background-color: var(--color-secondary);
+  top: 10%;
+  left: 15%;
+}
+
+body::after {
+  width: 250px;
+  height: 250px;
+  background-color: var(--color-primary);
+  bottom: 15%;
+  right: 20%;
+}
+
+/* Additional geometric shapes */
+body .triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 130px solid transparent;
+  border-right: 130px solid transparent;
+  border-bottom: 180px solid var(--color-accent);
+  opacity: 0.2;
+  bottom: 10%;
+  left: 35%;
+}
+
+body .rectangle {
+  position: absolute;
+  width: 180px;
+  height: 100px;
+  background-color: var(--color-secondary);
+  opacity: 0.1;
+  top: 25%;
+  right: 20%;
+  transform: rotate(-15deg);
+}
+
+/* Header Styling */
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  z-index: 1;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+}
+
+/* Main Form Styling */
+.main-content {
+  justify-content: center;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+.form-section {
+  width: 100%;
+  max-width: 700px;
+  background-color: #333545;
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Form Title */
+.form-title {
+  font-size: 2.2rem;
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: var(--spacing);
+}
+
+.half-width {
+  display: inline-block;
+  width: 48%;
+}
+
+.half-width:nth-child(odd) {
+  margin-right: 4%;
+}
+
+.form-label {
+  display: block;
+  font-size: 1rem;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Input Fields */
+.form-input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+  background-color: #44475a;
+  border: 2px solid var(--color-secondary);
+  border-radius: var(--border-radius);
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.form-input:focus {
+  border-color: var(--focus-color);
+  box-shadow: 0 0 8px var(--focus-color);
+  outline: none;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--color-text-light);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+  text-transform: uppercase;
+}
+
+.submit-btn:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+.submit-btn:focus {
+  outline: 3px solid var(--focus-color);
+}
+
+/* Footer Styling */
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #999;
+  z-index: 1;
+}

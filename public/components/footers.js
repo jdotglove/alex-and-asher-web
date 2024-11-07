@@ -6,7 +6,7 @@ class DesktopFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <style>
-    
+
           .desktop-footer {
             display: flex;
             justify-content: center;
@@ -14,7 +14,7 @@ class DesktopFooter extends HTMLElement {
             margin-top: 10rem;
             padding-bottom: 8rem;
           }
-     
+
       </style>
       <footer class="desktop-footer">
         <p>© 2024&nbsp;Alex &amp; Asher</p>

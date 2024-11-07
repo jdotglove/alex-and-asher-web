@@ -42,18 +42,7 @@ body {
         padding: 10px 24px;
     }
 
-    .nav-dialog-header .main-container {
-        padding: 10px 24px;
-        width: 100%;
-        justify-content: center;
-        display: flex;
-        box-sizing: border-box;
-        flex-direction: row;
-    }
-
-    .nav-dialog-header .nav-link {
-        align-self: flex-start;
-    }
+    
 
     .nav-link {
         white-space: nowrap;

@@ -72,7 +72,7 @@ class DesktopHeader extends HTMLElement {
             justify-content: space-between;
           }
         }
-        
+
         .desktop-header .title {
           color: #13263a;
           flex-grow: 1;
@@ -99,7 +99,7 @@ class DesktopHeader extends HTMLElement {
             white-space: initial;
           }
         }
-    
+
         .desktop-header .nav-section {
           align-self: center;
           justify-content: flex-end;
@@ -108,7 +108,7 @@ class DesktopHeader extends HTMLElement {
           flex-grow: 1;
           flex-shrink: 1;
         }
-    
+
         .desktop-header .nav {
           box-sizing: border-box;
           display: flex;
@@ -116,13 +116,13 @@ class DesktopHeader extends HTMLElement {
           min-width: 430px;
           padding: 0 20px;
         }
-    
+
         @media (max-width: 991px) {
           .desktop-header .nav-link {
             white-space: initial;
           }
         }
-    
+
         .search-wrapper {
           cursor: pointer;
           display: flex;
@@ -272,7 +272,7 @@ class MobileHeader extends HTMLElement {
         }
       </style>
       <header class="mobile-header">
-      
+
       <div class="main-container">
         <div class="search-wrapper">
           <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <meta name="description" content="Service for both home and commercial specialty food & beverage equipment in Raleigh, NC and its surrounding areas." />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+  <link rel="stylesheet" href="style.css" />
+  <script src="components/headers.js"></script>
+  <script src="components/footers.js"></script>
+  <title>Alex & Asher Tech - Home</title>
+</head>
+
+<body>
+  <main>
+    <!-- TODO: turn mobile headers into custom element -->
+    <div id="navDialog" class="nav-dialog">
+      <header class="nav-dialog-header">
+        <div class="main-container">
+          <div class="search-wrapper">
+            <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20.9276 9.80206C20.9276 4.40456 16.4058 0 10.8646 0C5.32337 0 0.775391 4.40456 0.775391 9.80206C0.775391 15.1996 5.29723 19.6041 10.8384 19.6041C13.2431 19.6041 15.4387 18.7894 17.1899 17.4146L21.4765 21.59L22.9664 20.1388L18.6537 15.9888C20.0651 14.3085 20.9276 12.1444 20.9276 9.80206ZM10.8384 17.5928C6.4473 17.5928 2.86642 14.1048 2.86642 9.82752C2.86642 5.55026 6.4473 2.06225 10.8384 2.06225C15.2296 2.06225 18.8105 5.55026 18.8105 9.82752C18.8105 14.1048 15.2557 17.5928 10.8384 17.5928Z"
+                fill="black" />
+            </svg>
+          </div>
+          <h1 class="title"><a href="index.html">Alex & Asher</a></h1>
+          <button class="more-wrapper" onclick="closeNav()">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M27.3437 24.1625L19.1812 16L27.3437 7.83755C28.225 6.9563 28.225 5.53755 27.3437 4.6563C26.4625 3.77505 25.0437 3.77505 24.1625 4.6563L16 12.8188L7.83749 4.6563C6.95624 3.77505 5.53749 3.77505 4.65624 4.6563C3.77499 5.53755 3.77499 6.9563 4.65624 7.83755L12.8187 16L4.65624 24.1625C3.77499 25.0438 3.77499 26.4625 4.65624 27.3438C5.53749 28.225 6.95624 28.225 7.83749 27.3438L16 19.1813L24.1625 27.3438C25.0437 28.225 26.4625 28.225 27.3437 27.3438C28.2187 26.4625 28.2187 25.0375 27.3437 24.1625Z"
+                fill="black" />
+            </svg>
+          </button>
+        </div>
+      </header>
+      <div class="dialog-navigation-container">
+        <nav class="dialog-navigation">
+          <a href="about-us.html" class="nav-link">About Us</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="shop.html" class="nav-link">Shop</a>
+          <a href="https://www.google.com/maps/place/Alex+%26+Asher/@35.4587539,-78.5025389,8z/data=!3m1!4b1!4m6!3m5!1s0x4553d12bf734747f:0xaf76986437b14c5d!8m2!3d35.4587539!4d-78.5025389!16s%2Fg%2F11s7rg0y54?entry=ttu"
+            class="nav-link" target="_blank">Leave A Review</a>
+        </nav>
+      </div>
+    </div>
+    <div class="home-page-container">
+      <desktop-header-component />
+      <mobile-header-component />
+
+      <section class="home-page-content">
+        <span class="logo-container">
+          <img class="logo" src="assets/croppedLogo.png" alt="alex and asher logo" />
+        </span>
+        <div class="mission-statement-container">
+          <p class="mission-statement">We service both home and commercial specialty food &amp; beverage equipment in Raleigh, NC and its surrounding areas.</p>
+        </div>
+        <div class="contact-info-container">
+          <p class="contact-info">(919) 612-7918 • help@alexandasher.tech</p>
+        </div>
+        <hr class="separator" />
+        <div class="about-us-container">
+          <img class="about-us-photo" src="assets/pexels-photo-7688336.webp" alt="people sitting around table" />
+          <div class="about-us-content">
+            <h4 class="about-us-heading"><strong>Learn more about our company, team, and mission</strong></h4>
+            <a class="about-us-link" href="/about-us">About Us</a>
+          </div>
+        </div>
+        <div class="our-services-container">
+          <div class="our-services-content">
+            <h4 class="our-services-heading"><strong>Our Services</strong></h4>
+            <p class="our-services-text">From basic home equipment to state-of-the-art commercial equipment, we&apos;ve got you covered. Ask us about our comprehensive service plans and training programs!</p>
+            <a class="our-services-link" href="/our-services">View Services</a>
+          </div>
+          <img class="our-services-photo" src="assets/pexels-photo-7162356-1.webp" alt="people sitting around table" />
+        </div>
+      </section>
+      <desktop-footer-component />
+    </div>
+  </main>
+</body>
+<script src="js/nav-dialog.js"></script>
+
+</html>
