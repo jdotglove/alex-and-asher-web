@@ -2,6 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 import PaymentManagementView from '@/views/PaymentManagementView.vue'
 import ManagementView from '@/views/ManagementView.vue'
 import RedirectToHtml from '@/components/RedirectToHtml.vue'
+import HomeView from '@/views/HomeView.vue'
+import AboutUsView from '@/views/AboutUsView.vue'
+import ServicesView from '@/views/ServicesView.vue'
+import ShopView from '@/views/ShopView.vue'
+import UserAgreementView from '@/views/UserAgreementView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -9,32 +14,27 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: RedirectToHtml,
-      props: { url: '/index.html' },
+      component: HomeView,
     },
     {
       path: '/about-us',
       name: 'About Us',
-      component: RedirectToHtml,
-      props: { url: '/about-us.html' },
+      component: AboutUsView,
     },
     {
       path: '/shop',
       name: 'Shop',
-      component: RedirectToHtml,
-      props: { url: '/shop.html' },
+      component: ShopView,
     },
     {
       path: '/services',
       name: 'Services',
-      component: RedirectToHtml,
-      props: { url: '/services.html' },
+      component: ServicesView,
     },
     {
       path: '/user-agreement',
       name: 'User Agreement',
-      component: RedirectToHtml,
-      props: { url: '/user-agreement.html' },
+      component: UserAgreementView,
     },
     {
       path: '/payment-management',

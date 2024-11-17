@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="css/user-agreement-style.css" />
-  <script src="components/headers.js"></script>
-  <script src="components/footers.js"></script>
-  <title>Alex & Asher Tech - Services</title>
-</head>
-
-<body>
+<template>
   <main>
     <span class="logo-container">
-      <img class="logo" src="assets/croppedLogo.png" alt="alex and asher logo" />
+      <img class="logo" src="../../public/assets/croppedLogo.png" alt="alex and asher logo" />
     </span>
     <section class="user-agreement-container">
       <h1>
@@ -153,6 +137,43 @@
       </p>
     </section>
   </main>
-</body>
+</template>
 
-</html>
+<style lang="css" scoped>
+.user-agreement-container {
+  padding: 15px;
+  margin: 15px;
+}
+
+.user-agreement-container h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.user-agreement-container h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.user-agreement-container h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.logo {
+  max-width: 100%;
+  height: 250px;
+  width: 700px;
+  aspect-ratio: 3.16;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  align-self: center;
+}
+</style>

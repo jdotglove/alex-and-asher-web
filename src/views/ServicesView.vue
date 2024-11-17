@@ -1,0 +1,318 @@
+<script setup lang="ts">
+import DesktopFooter from '@/components/footers/DesktopFooter.vue';
+import DesktopHeader from '@/components/headers/DesktopHeader.vue';
+import MobileHeader from '@/components/headers/MobileHeader.vue';
+</script>
+
+<template>
+  <main class="services-page-container">
+    <DesktopHeader />
+    <MobileHeader />
+    <div>
+      <h2 class="services-page-title">
+        Services
+      </h2>
+    </div>
+    <section class="services-page-content">
+
+      <div class="services-description-container">
+        <img class="services-photo" src="../../public/assets/tools-image.webp" alt="people sitting around table" />
+        <div class="services-content">
+          <p class="services-text">We offer services to help keep your specialty shop running and equipment maintained
+            as well as training and education opportunities.</p>
+        </div>
+      </div>
+      <section class="desktop-services-list-card">
+        <div class="services-list-header-container">
+          <div class="services-column">
+            <h4>Machines, Maintenance & Repairs</h4>
+          </div>
+          <div class="services-column">
+            <h4>Training & Education</h4>
+          </div>
+          <div class="services-column">
+            <h4>Other Shop Solutions</h4>
+          </div>
+        </div>
+        <div class="services-list-separator-container">
+          <span class="services-column">
+            <hr class="services-column-separator" />
+          </span>
+          <span class="services-column">
+            <hr class="services-column-separator" />
+          </span>
+          <span class="services-column">
+            <hr class="services-column-separator" />
+          </span>
+        </div>
+        <div class="services-list-text-container">
+          <ul class="services-list">
+            <li>Coffee Machines Sales, Leasing, & Installation</li>
+            <li>Draft Line Installation & Cleaning</li>
+            <li>Preventative Maintenance Plans</li>
+            <li>Refrigeration</li>
+          </ul>
+          <ul class="services-list">
+            <li>Coffee & Barista 101 Training by Autumn Ingool (SCA Barista Skills Intermediate Certified) of Oraculum
+              Coffee</li>
+            <li>Custom/Continuing Coffee Education Training Plans with Autumn Ingool</li>
+          </ul>
+          <ul class="services-list">
+            <li>Website Development</li>
+            <li>POS System Solutions</li>
+            <li>Inventory & Stock Solutions</li>
+          </ul>
+        </div>
+      </section>
+      <section class="mobile-services-list-card">
+        <div class="services-column">
+          <header class="services-column-header">
+            <h4>Machines, Maintenance & Repairs</h4>
+          </header>
+          <hr class="services-column-separator" />
+          <div class="services-list-text-container">
+            <ul class="services-list">
+              <li>Coffee Machines Sales, Leasing, & Installation</li>
+              <li>Draft Line Installation & Cleaning</li>
+              <li>Preventative Maintenance Plans</li>
+              <li>Refrigeration</li>
+            </ul>
+          </div>
+        </div>
+        <div class="services-column">
+          <header class="services-column-header">
+            <h4>Training & Education</h4>
+          </header>
+          <hr class="services-column-separator" />
+          <div class="services-list-text-container">
+            <ul class="services-list">
+              <li>Coffee & Barista 101 Training by Autumn Ingool (SCA Barista Skills Intermediate Certified) of Oraculum
+                Coffee</li>
+              <li>Custom/Continuing Coffee Education Training Plans with Autumn Ingool</li>
+            </ul>
+          </div>
+        </div>
+        <div class="services-column">
+          <header class="services-column-header">
+            <h4>Other Shop Solutions</h4>
+          </header>
+          <hr class="services-column-separator" />
+          <div class="services-list-text-container">
+            <ul class="services-list">
+              <li>Website Development</li>
+              <li>POS System Solutions</li>
+              <li>Inventory & Stock Solutions</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </section>
+    <DesktopFooter />
+  </main>
+</template>
+
+<style lang="css" scoped>
+ul {
+  list-style-type: disc;
+}
+
+@media (max-width: 961px) {
+  .services-description-container {
+    display: grid;
+    grid-template-rows: 50% 1fr;
+    grid-template-columns: 1fr;
+    padding-bottom: 40px;
+  }
+
+  .services-content {
+    justify-items: center !important;
+    align-self: flex-start !important;
+    margin-top: 1rem;
+    display: flex;
+  }
+
+  .services-text {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 2.25rem !important;
+    font-size: 31px !important;
+  }
+
+  .services-page-title {
+    margin-top: 0;
+  }
+
+  .services-description-container {
+    margin: 2rem 1rem 2rem;
+  }
+
+  .desktop-services-list-card {
+    display: none;
+  }
+
+  .mobile-services-list-card {
+    background-color: #F7F7F7;
+    justify-content: center;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    padding: 2rem 2rem 1rem 2rem;
+    margin: 2rem 1rem 2rem;
+  }
+
+  .services-column-header {
+    flex-wrap: wrap;
+    font: 20px "Crimson Text", serif;
+    text-align: center;
+    max-width: 275px;
+    margin: 0 0;
+    display: flex;
+    justify-self: center;
+  }
+
+  .services-column-header>h4 {
+    margin: 0 0;
+  }
+
+  .services-column {
+    display: grid;
+  }
+
+  .services-column-separator {
+    width: 80%;
+  }
+
+  .services-list-text-container {
+    display: flex;
+    justify-self: center;
+    font: 16.8px "PT Serif";
+    line-height: 2;
+    width: 20rem;
+  }
+
+  .services-list-text-container li {
+    margin: 10px 0;
+  }
+
+  .services-list-text-container ul {
+    width: 70%;
+  }
+}
+
+@media (min-width: 962px) {
+  .services-description-container {
+    margin: 3rem 6rem 3rem;
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    grid-template-rows: auto;
+  }
+
+  .desktop-services-list-card {
+    background-color: #F7F7F7;
+    margin: 8rem 5rem;
+    padding: 2rem 2rem 1rem 2rem;
+  }
+
+  .mobile-services-list-card {
+    display: none;
+  }
+
+  .services-list-header-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services-list-separator-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services-list-text-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services-column {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .services-list {
+    align-items: flex-start;
+    justify-self: center;
+    flex-direction: column;
+    display: flex;
+    font: 16.8px "PT Serif";
+    max-width: 300px;
+    row-gap: 20px;
+    line-height: 2rem;
+  }
+
+  .services-column-header>h4 {
+    font: 27px "Crimson Text", serif;
+    text-align: center;
+    max-width: 275px;
+    margin: 0 0;
+  }
+
+  .services-column-separator {
+    width: 60%;
+  }
+
+  .services-page-title {
+    margin-top: 30px;
+  }
+
+  .services-content {
+    padding: 0 8%;
+  }
+}
+
+.services-page-title {
+  font: 72px "Crimson Text", serif;
+  text-align: center;
+  padding: 50px 60px 55px;
+  align-self: stretch;
+  margin-bottom: 0px;
+  color: #13263A;
+}
+
+.services-content {
+  align-self: center;
+  justify-content: center;
+  box-sizing: inherit;
+  height: auto;
+}
+
+.services-link {
+  background-color: #C86A19;
+  text-decoration: none;
+  color: white;
+  padding: 1.4rem 2.25rem;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.services-text {
+  display: block;
+  font: 44px "Crimson Text", serif;
+  margin: 35px 0;
+  font-weight: 400;
+}
+
+.services-photo {
+  justify-self: center;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1.5;
+}
+
+.services-column-separator {
+  height: 1px;
+  margin-top: 10px;
+  background-color: #13263A;
+}
+</style>
