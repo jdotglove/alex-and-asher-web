@@ -30,16 +30,15 @@ import ViewUpdateRequestLinkModal from '@/components/modals/ViewUpdateRequestLin
       <p v-else>Loading customers...</p>
     </div>
     <!-- Modal Component -->
-    <ViewUpdateRequestLinkModal
-      v-if="showViewUpdateRequestModal"
-      :isVisible="showViewUpdateRequestModal"
-      @close="showViewUpdateRequestModal = false"
-      title="Customer Details"
-    >
+    <ViewUpdateRequestLinkModal v-if="showViewUpdateRequestModal" :isVisible="showViewUpdateRequestModal"
+      @close="showViewUpdateRequestModal = false" title="Customer Details">
       <div>
         <p>
           <strong>Update URL:</strong>
-          {{ currentUpdateRequest && currentUpdateRequest.updateAuthToken }}
+          <a v-if="currentUpdateRequest"
+            :href="`${baseUrl}/payment-management/${currentUpdateRequest.updateAuthToken}`">
+            {{ `${baseUrl}/payment-management/${currentUpdateRequest.updateAuthToken}` }}
+          </a>
         </p>
       </div>
     </ViewUpdateRequestLinkModal>
@@ -49,16 +48,18 @@ import ViewUpdateRequestLinkModal from '@/components/modals/ViewUpdateRequestLin
 <script lang="ts">
 export default {
   data(): {
-    customers: Array<AlexAndAsher.StripeCustomer>
-    currentUpdateRequest: AlexAndAsher.PaymentUpdateRequest | null
-    shapeColors: Array<string>
-    showViewUpdateRequestModal: boolean
+    customers: Array<AlexAndAsher.StripeCustomer>;
+    currentUpdateRequest: AlexAndAsher.PaymentUpdateRequest | null;
+    shapeColors: Array<string>;
+    showViewUpdateRequestModal: boolean;
+    baseUrl: string;
   } {
     return {
       customers: [], // Customer list will be populated here
       showViewUpdateRequestModal: false,
       currentUpdateRequest: null,
-      shapeColors: ['#A87FB9', '#5FBBFF', '#ADD58D'] // Color palette for shapes
+      shapeColors: ['#A87FB9', '#5FBBFF', '#ADD58D'], // Color palette for shapes
+      baseUrl: import.meta.env.VITE_BASE_SITE_URL
     }
   },
   methods: {
@@ -146,53 +147,66 @@ export default {
 </script>
 
 <style scoped>
-/* Root Variables */
-:root {
-  --color-primary: #a87fb9;
-  /* Soft purple */
-  --color-secondary: #5fbbff;
-  /* Bright blue */
-  --color-accent: #add58d;
-  /* Soft green */
-  --bg-color: #1e1e2f;
-  /* Dark base background */
-  --text-color-light: #ffffff;
-  /* Light text color */
-  --border-radius: 8px;
+/* Page Header Styling */
+.page-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
-/* Customer List Container */
-.customer-list-container {
+.page-header h1 {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+/* Geometric Background Accents */
+.customers-list-page::before,
+.customers-list-page::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.customers-list-page::before {
+  width: 180px;
+  height: 180px;
+  background-color: var(--color-secondary);
+  top: -40px;
+  left: -40px;
+}
+
+.customers-list-page::after {
+  width: 160px;
+  height: 160px;
+  background-color: var(--color-accent);
+  bottom: -40px;
+  right: -40px;
+}
+
+/* Customers Table Container */
+.customers-table-container {
+  width: 100%;
   max-width: 900px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: var(--bg-color);
-  color: var(--text-color-light);
+  margin: 0 auto;
+  overflow-x: auto;
+  background-color: var(--table-bg);
   border-radius: var(--border-radius);
+  padding: 1.5rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
   position: relative;
-  overflow: hidden;
-}
-
-/* Title Styling */
-.form-title {
-  font-size: 2rem;
-  color: var(--color-secondary);
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-/* Table Container */
-.table-container {
-  overflow-x: auto;
 }
 
 /* Customers Table Styling */
 .customers-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #333545;
-  border-radius: var(--border-radius);
 }
 
 .customers-table thead {
@@ -202,9 +216,9 @@ export default {
 .customers-table th,
 .customers-table td {
   padding: 1rem;
-  color: var(--text-color-light);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   text-align: left;
+  color: var(--text-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .customers-table th {
@@ -213,11 +227,7 @@ export default {
 }
 
 .customers-table tbody tr {
-  background-color: #333545;
-}
-
-.customers-table tbody tr:nth-child(even) {
-  background-color: #44475a;
+  background-color: var(--table-bg);
 }
 
 .customers-table tbody tr:hover {
@@ -226,6 +236,11 @@ export default {
 }
 
 /* Action Button Styling */
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .action-btn {
   padding: 0.5rem 0.8rem;
   font-size: 0.9rem;
@@ -240,12 +255,188 @@ export default {
     transform 0.2s;
 }
 
-.generate-url-btn {
+.view-btn {
+  background-color: var(--color-secondary);
+}
+
+.view-btn:hover {
+  background-color: #3d8fd1;
+}
+
+.edit-btn {
   background-color: var(--color-primary);
 }
 
-.generate-url-btn:hover {
+.edit-btn:hover {
+  background-color: #944ba3;
+}
+
+.delete-btn {
+  background-color: #ff6666;
+}
+
+.delete-btn:hover {
+  background-color: #e65555;
+  transform: scale(1.05);
+}
+
+/* Header Styling */
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  z-index: 1;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+}
+
+/* Main Form Styling */
+.main-content {
+  display: grid;
+  justify-content: center;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+/* Form Title */
+.form-title {
+  font-size: 2.2rem;
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: var(--spacing);
+}
+
+.half-width {
+  display: inline-block;
+  width: 48%;
+}
+
+.half-width:nth-child(odd) {
+  margin-right: 4%;
+}
+
+.form-label {
+  display: block;
+  font-size: 1rem;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Input Fields */
+.form-input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+  background-color: #44475a;
+  border: 2px solid var(--color-secondary);
+  border-radius: var(--border-radius);
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.form-input:focus {
+  border-color: var(--focus-color);
+  box-shadow: 0 0 8px var(--focus-color);
+  outline: none;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--color-text-light);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+  text-transform: uppercase;
+}
+
+.submit-btn:hover {
   background-color: var(--color-secondary);
   transform: translateY(-2px);
+}
+
+.submit-btn:focus {
+  outline: 3px solid var(--focus-color);
+}
+
+/* Footer Styling */
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #999;
+  z-index: 1;
+}
+
+.payment-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.success-message {
+  margin-top: 20px;
+  color: #28a745;
+  font-weight: bold;
 }
 </style>

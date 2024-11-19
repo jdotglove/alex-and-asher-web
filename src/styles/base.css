@@ -233,6 +233,7 @@ body {
   position: relative;
   font-size: 1.3rem;
   font-weight: 500;
+  z-index: -5;
 }
 
 .about-us-heading {
@@ -282,6 +283,7 @@ body {
   font: 24px 'PT Serif';
   color: #434a56;
   line-height: 1.5;
+  margin: 24px 0px;
 }
 
 .our-services-photo {
@@ -321,7 +323,7 @@ body {
 }
 .separator {
   justify-self: center;
-  height: 1px;
+  height: 3px;
   margin-top: 10px;
   background-color: #13263a;
 }

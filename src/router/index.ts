@@ -37,7 +37,7 @@ const router = createRouter({
       component: UserAgreementView,
     },
     {
-      path: '/payment-management',
+      path: '/payment-management/:updateAuthToken',
       name: 'payment-management',
       component: PaymentManagementView
     },

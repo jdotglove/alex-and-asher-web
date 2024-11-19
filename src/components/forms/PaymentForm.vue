@@ -1,46 +1,94 @@
 <template>
   <section class="form-section">
     <form class="payment-form" aria-labelledby="payment-form-title">
-      <div class="form-group">
-        <label for="name" class="form-label">Cardholder Name</label>
-        <input type="text" id="name" class="form-input" placeholder="Jane Doe" required />
+
+      <!-- Radio Buttons -->
+      <div class="radio-container">
+        <div class="radio-options">
+          <label>
+            Use Card
+            <input type="radio" value="card" v-model="updateOption" />
+          </label>
+          <label>
+            Use Bank Account
+            <input type="radio" value="bank-account" v-model="updateOption" />
+          </label>
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="card-number" class="form-label">Card Number</label>
-        <input
-          type="text"
-          id="card-number"
-          class="form-input"
-          placeholder="1234 5678 9012 3456"
-          required
-        />
-      </div>
-      <section class="bottom-section">
-        <div class="form-group">
-          <label for="expiry-date" class="form-label">Expiry Date</label>
-          <input type="text" id="expiry-date" class="form-input" placeholder="MM/YY" required />
-        </div>
+      <section v-if="updateOption === 'card'">
+        <article class="input-group">
+          <label for="email" class="form-label">Account Email</label>
+          <input type="text" id="email" class="form-input" placeholder="example@email.com" required />
+        </article>
 
-        <div class="form-group">
-          <label for="cvv" class="form-label">CVV</label>
-          <input type="text" id="cvv" class="form-input" placeholder="123" required />
-        </div>
+        <article class="input-group">
+          <label for="name" class="form-label">Cardholder Name</label>
+          <input type="text" id="name" class="form-input" placeholder="Jane Doe" required />
+        </article>
+
+        <article class="input-group">
+          <label for="card-number" class="form-label">Card Number</label>
+          <input type="text" id="card-number" class="form-input" placeholder="1234 5678 9012 3456" required />
+        </article>
+
+        <section class="bottom-section">
+          <article class="input-group">
+            <label for="expiry-date" class="form-label">Expiry Date</label>
+            <input type="text" id="expiry-date" class="form-input" placeholder="MM/YY" required />
+          </article>
+
+          <article class="input-group">
+            <label for="cvv" class="form-label">CVV</label>
+            <input type="text" id="cvv" class="form-input" placeholder="123" required />
+          </article>
+        </section>
+      </section>
+      <section v-else>
+        <article class="input-group">
+          <label for="email" class="form-label">Account Email</label>
+          <input type="text" id="email" class="form-input" placeholder="example@email.com" required />
+        </article>
+
+        <article class="input-group">
+          <label for="account-number" class="form-label">Account Number</label>
+          <input type="text" id="account-number" class="form-input" placeholder="123456789012" required />
+        </article>
+
+        <article class="input-group">
+          <label for="confirm-account-number" class="form-label">Confirm Account Number</label>
+          <input type="text" id="confirm-account-number" class="form-input" placeholder="123456789012" required />
+        </article>
+
+        <article class="input-group">
+          <label for="routing-number" class="form-label">Routing Number</label>
+          <input type="text" id="routing-number" class="form-input" placeholder="123456789012" required />
+        </article>
       </section>
       <button type="submit" class="submit-btn">Update Payment</button>
     </form>
   </section>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  data() {
+  data(): {
+    updateOption: string;
+    paymentDetails: {
+      cardNumber: string;
+      expiryDate: string;
+      cvv: string;
+    }
+    paymentSuccess: boolean;
+  } {
     return {
+      updateOption: 'card',
       paymentDetails: {
         cardNumber: '',
         expiryDate: '',
         cvv: ''
-      }
+      },
+      paymentSuccess: false,
     }
   },
   methods: {
@@ -58,6 +106,14 @@ export default {
 </script>
 
 <style scoped>
+.form-section {
+  width: 50dvw;
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
 .payment-form {
   max-width: 800px;
   margin: 0 auto;
@@ -67,7 +123,7 @@ export default {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
+.input-group {
   margin-bottom: 15px;
 }
 
@@ -107,63 +163,21 @@ button:hover {
   font-weight: bold;
 }
 
-/* The switch - the box around the slider */
-.switch {
-  display: inline-block;
+
+/* Radio Button Styling */
+.radio-container {
+  margin-bottom: 15px;
 }
 
-/* Hide default HTML checkbox */
-/* .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-} */
-
-/* The slider */
-/* .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ADD58D;
-  -webkit-transition: .4s;
-  transition: .4s;
+.radio-options {
+  display: flex;
+  gap: 25px;
+  align-items: center;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 22px;
-  width: 24px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+.radio-options label {
+  display: grid;
+  align-items: center;
+  gap: 5px;
 }
-
-input:checked+.slider {
-  background-color: #2196F3;
-}
-
-input:focus+.slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked+.slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-} */
-
-/* Rounded sliders */
-/* .slider.round {
-  border-radius: 30px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-} */
 </style>

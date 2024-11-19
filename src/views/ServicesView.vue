@@ -311,7 +311,7 @@ ul {
 }
 
 .services-column-separator {
-  height: 1px;
+  height: 3px;
   margin-top: 10px;
   background-color: #13263A;
 }

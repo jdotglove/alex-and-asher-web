@@ -32,7 +32,7 @@ import MobileHeader from '@/components/headers/MobileHeader.vue';
         </div>
       </div>
       <div class="about-team-container">
-        <h3>Team</h3>
+        <h3 class="about-team-header">Team</h3>
         <div class="desktop-about-jordon-container">
           <div class="about-jordon-text-container">
             <h4>Jordon A. Glover</h4>
@@ -99,6 +99,11 @@ import MobileHeader from '@/components/headers/MobileHeader.vue';
 </template>
 
 <style lang="css" scoped>
+.about-team-header {
+  padding: 0 0 0 24px;
+  margin: 44px 0px;
+}
+
 @media (max-width: 961px) {
   .about-us-description-container {
     display: flex;
