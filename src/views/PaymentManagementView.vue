@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import DesktopFooter from '@/components/footers/DesktopFooter.vue';
 import PaymentForm from '@/components/forms/PaymentForm.vue'
-import VerifyEmailForm from '@/components/forms/VerifyEmailForm.vue'
 </script>
 
 <template>
