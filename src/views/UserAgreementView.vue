@@ -1,7 +1,7 @@
 <template>
   <main>
     <span class="logo-container">
-      <img class="logo" src="../../public/assets/croppedLogo.png" alt="alex and asher logo" />
+      <img class="logo" src="/assets/croppedLogo.png" alt="alex and asher logo" />
     </span>
     <section class="user-agreement-container">
       <h1>

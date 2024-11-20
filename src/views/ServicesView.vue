@@ -16,7 +16,7 @@ import MobileHeader from '@/components/headers/MobileHeader.vue';
     <section class="services-page-content">
 
       <div class="services-description-container">
-        <img class="services-photo" src="../../public/assets/tools-image.webp" alt="people sitting around table" />
+        <img class="services-photo" src="/assets/tools-image.webp" alt="people sitting around table" />
         <div class="services-content">
           <p class="services-text">We offer services to help keep your specialty shop running and equipment maintained
             as well as training and education opportunities.</p>

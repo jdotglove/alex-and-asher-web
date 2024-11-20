@@ -1,53 +1,70 @@
 <script setup lang="ts">
+import DesktopFooter from '@/components/footers/DesktopFooter.vue';
 import PaymentForm from '@/components/forms/PaymentForm.vue'
-
+import VerifyEmailForm from '@/components/forms/VerifyEmailForm.vue'
 </script>
 
 <template>
-  <header class="header">
-    <h1>Update Your Payment Information</h1>
-    <p>Please update your payment details to ensure continued service.</p>
-  </header>
   <main class="main-content">
-    <PaymentForm />
+    <section v-if="verifiedEmailAddress">
+      <header class="header">
+        <h1>Update Your Payment Information</h1>
+        <p>Please update your payment details to ensure continued service.</p>
+      </header>
+      <PaymentForm />
+    </section>
+    <section v-else>
+      <header class="header">
+        <h1>Verify Your Email Address</h1>
+        <p>Please enter the email address associated with your Alex and Asher account.</p>
+      </header>
+      <section class="form-section">
+        <form v-on:submit="verifyEmailAddress" class="email-form" aria-labelledby="email-form-title">
+          <section>
+            <article class="input-group">
+              <label for="email" class="form-label">Account Email</label>
+              <input v-model="emailAddress" type="text" id="email" class="form-input" placeholder="example@email.com"
+                required />
+            </article>
+          </section>
+          <button type="submit" class="submit-btn">Verify Email</button>
+        </form>
+      </section>
+    </section>
   </main>
-  <footer class="footer">
-    <p>&copy; 2023 Payment Processing, Inc.</p>
-  </footer>
+  <DesktopFooter />
 </template>
 
 <script lang="ts">
 
 export default {
+  async mounted() {
+    this.createRandomShapes(); // Create random shapes on mount
+  },
   computed: {
     // Retrieve query parameters from the $route object
     updateAuthToken() {
       return this.$route.params.updateAuthToken || "";
     },
   },
-  async mounted() {
-    this.createRandomShapes(); // Create random shapes on mount
-    await this.verifyRequestAuthToken();
-  },
-  data() {
+  data(): {
+    emailAddress: string;
+    verifiedEmailAddress: boolean;
+    paymentSuccess: boolean;
+    shapeColors: Array<string>;
+  } {
     return {
-      paymentDetails: {
-        name: '',
-        email: '',
-        cardNumber: '',
-        expiryDate: '',
-        cvv: '',
-        amount: null
-      },
+      emailAddress: '',
+      verifiedEmailAddress: false,
       paymentSuccess: false,
       shapeColors: ['#A87FB9', '#5FBBFF', '#ADD58D'], // Color palette for shapes
     }
   },
   methods: {
-    async verifyRequestAuthToken() {
-      console.log(this.updateAuthToken)
+    async verifyEmailAddress(e: any) {
+      e.preventDefault();
       const response = await fetch(
-        `${import.meta.env.VITE_SERVER_API_BASE_URL}/payment-update/${this.updateAuthToken}`,
+        `${import.meta.env.VITE_SERVER_API_BASE_URL}/payment-update?email=${this.emailAddress}&token=${this.updateAuthToken}`,
         {
           method: 'GET',
           headers: {
@@ -55,16 +72,10 @@ export default {
             authorization: import.meta.env.VITE_SERVER_API_KEY || ''
           }
         }
-      )
-    },
-    submitPayment() {
-      // Payment logic goes here. For now, we'll mock the success.
-      console.log('Payment details:', this.paymentDetails)
-      this.paymentSuccess = true
+      );
 
-      // You can replace the above with actual integration code, such as:
-      // 1. Validating the card info (with client-side libraries or API calls)
-      // 2. Sending the details to a payment processor (Stripe, PayPal, etc.)
+      const data = await response.json();
+      this.verifiedEmailAddress = data.verified;
     },
     createRandomShapes() {
       const container = document.querySelector('.main-content')
@@ -114,126 +125,6 @@ export default {
   font-size: 1.1rem;
   color: var(--text-light);
   margin-top: 0.5rem;
-}
-
-/* Geometric Background Accents */
-.customers-list-page::before,
-.customers-list-page::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.1;
-  pointer-events: none;
-}
-
-.customers-list-page::before {
-  width: 180px;
-  height: 180px;
-  background-color: var(--color-secondary);
-  top: -40px;
-  left: -40px;
-}
-
-.customers-list-page::after {
-  width: 160px;
-  height: 160px;
-  background-color: var(--color-accent);
-  bottom: -40px;
-  right: -40px;
-}
-
-/* Customers Table Container */
-.customers-table-container {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  overflow-x: auto;
-  background-color: var(--table-bg);
-  border-radius: var(--border-radius);
-  padding: 1.5rem;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-  position: relative;
-}
-
-/* Customers Table Styling */
-.customers-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.customers-table thead {
-  background-color: var(--color-primary);
-}
-
-.customers-table th,
-.customers-table td {
-  padding: 1rem;
-  text-align: left;
-  color: var(--text-light);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.customers-table th {
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-
-.customers-table tbody tr {
-  background-color: var(--table-bg);
-}
-
-.customers-table tbody tr:nth-child(even) {
-  background-color: #44475a;
-}
-
-.customers-table tbody tr:hover {
-  background-color: #5a5e6f;
-  transition: background-color 0.3s;
-}
-
-/* Action Button Styling */
-.actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.action-btn {
-  padding: 0.5rem 0.8rem;
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #fff;
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  text-transform: uppercase;
-  transition:
-    background-color 0.3s,
-    transform 0.2s;
-}
-
-.view-btn {
-  background-color: var(--color-secondary);
-}
-
-.view-btn:hover {
-  background-color: #3d8fd1;
-}
-
-.edit-btn {
-  background-color: var(--color-primary);
-}
-
-.edit-btn:hover {
-  background-color: #944ba3;
-}
-
-.delete-btn {
-  background-color: #ff6666;
-}
-
-.delete-btn:hover {
-  background-color: #e65555;
-  transform: scale(1.05);
 }
 
 /* Header Styling */
@@ -299,8 +190,6 @@ export default {
   padding: 1rem;
   font-size: 1.2rem;
   color: var(--color-text-light);
-  background-color: #44475a;
-  border: 2px solid var(--color-secondary);
   border-radius: var(--border-radius);
   transition:
     border-color 0.3s,
@@ -317,43 +206,9 @@ export default {
   outline: none;
 }
 
-/* Submit Button */
-.submit-btn {
-  width: 100%;
-  padding: 1rem;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: var(--color-text-light);
-  background-color: var(--color-primary);
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition:
-    background-color 0.3s,
-    transform 0.2s;
-  text-transform: uppercase;
-}
 
-.submit-btn:hover {
-  background-color: var(--color-secondary);
-  transform: translateY(-2px);
-}
-
-.submit-btn:focus {
-  outline: 3px solid var(--focus-color);
-}
-
-/* Footer Styling */
-.footer {
-  text-align: center;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-  color: #999;
-  z-index: 1;
-}
-
-.payment-form {
-  max-width: 400px;
+.email-form {
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
@@ -365,9 +220,18 @@ export default {
   margin-bottom: 15px;
 }
 
+.input-group {
+  margin-bottom: 15px;
+}
+
+.bottom-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
 label {
   display: block;
-  margin-bottom: 5px;
 }
 
 input {
@@ -378,7 +242,7 @@ input {
 }
 
 button {
-  background-color: #28a745;
+  background-color: #5fbbff;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -387,12 +251,6 @@ button {
 }
 
 button:hover {
-  background-color: #218838;
-}
-
-.success-message {
-  margin-top: 20px;
-  color: #28a745;
-  font-weight: bold;
+  background-color: #28a2ff;
 }
 </style>

@@ -10,7 +10,7 @@ import MobileHeader from '@/components/headers/MobileHeader.vue';
     <MobileHeader />
     <div class="home-page-content">
       <span class="logo-container">
-        <img class="logo" src="../../public/assets/croppedLogo.png" alt="alex and asher logo" />
+        <img class="logo" src="/assets/croppedLogo.png" alt="alex and asher logo" />
       </span>
       <div class="mission-statement-container">
         <p class="mission-statement">We service both home and commercial specialty food &amp; beverage equipment in
@@ -21,8 +21,7 @@ import MobileHeader from '@/components/headers/MobileHeader.vue';
       </div>
       <hr class="separator" />
       <div class="about-us-container">
-        <img class="about-us-photo" src="../../public/assets/pexels-photo-7688336.webp"
-          alt="people sitting around table" />
+        <img class="about-us-photo" src="/assets/pexels-photo-7688336.webp" alt="people sitting around table" />
         <div class="about-us-content">
           <h4 class="about-us-heading"><strong>Learn more about our company, team, and mission</strong></h4>
           <a class="about-us-link" href="/about-us">About Us</a>
@@ -36,8 +35,7 @@ import MobileHeader from '@/components/headers/MobileHeader.vue';
             you covered. Ask us about our comprehensive service plans and training programs!</p>
           <a class="our-services-link" href="/our-services">View Services</a>
         </div>
-        <img class="our-services-photo" src="../../public/assets/pexels-photo-7162356-1.webp"
-          alt="people sitting around table" />
+        <img class="our-services-photo" src="/assets/pexels-photo-7162356-1.webp" alt="people sitting around table" />
       </div>
     </div>
     <DesktopFooter />

@@ -28,7 +28,7 @@ import MobileHeader from '@/components/headers/MobileHeader.vue';
         <div class="about-us-photo-and-text">
           <p>Our mission is to create a supportive foundation for the North Carolina specialty food and beverage shop
             via extensive client communication and well-trained attentive staff.</p>
-          <img class="draft-photo" src="../../public/assets/Draft-Pic-resized.webp" alt="draft taps" />
+          <img class="draft-photo" src="/assets/Draft-Pic-resized.webp" alt="draft taps" />
         </div>
       </div>
       <div class="about-team-container">
@@ -50,12 +50,12 @@ import MobileHeader from '@/components/headers/MobileHeader.vue';
                 knowledge, Jordon A. Glover will soon be the mechanically savvy overlord of the new world.</p>
             </div>
           </div>
-          <img src="../../public/assets/jordon-pic.webp" class="jordon-pic" alt="picture of jordon glover">
+          <img src="/assets/jordon-pic.webp" class="jordon-pic" alt="picture of jordon glover">
         </div>
         <div class="mobile-about-jordon-container">
           <div class="about-jordon-text-container">
             <div class="about-jordon-header">
-              <h4>Jordon A. Glover</h4><img src="../../public/assets/jordon-pic.webp" class="jordon-pic"
+              <h4>Jordon A. Glover</h4><img src="/assets/jordon-pic.webp" class="jordon-pic"
                 alt="picture of jordon glover">
             </div>
             <p class="occupation-text">Founder / Head Technician</p>
@@ -79,12 +79,12 @@ import MobileHeader from '@/components/headers/MobileHeader.vue';
             <h4>Autumn Ingool</h4>
             <p class="occupation-text">Oraculum Coffee<br>SCA Certified Barista Skills<br>Trainer</p>
           </div>
-          <img src="../../public/assets/autumn-pic.webp" class="autumn-pic" alt="picture of autumn ingool">
+          <img src="/assets/autumn-pic.webp" class="autumn-pic" alt="picture of autumn ingool">
         </div>
         <div class="mobile-about-autumn-container">
           <div class="about-autumn-text-container">
             <div class="about-autumn-header">
-              <h4>Autumn Ingool</h4><img src="../../public/assets/autumn-pic.webp" class="autumn-pic"
+              <h4>Autumn Ingool</h4><img src="/assets/autumn-pic.webp" class="autumn-pic"
                 alt="picture of autumn ingool">
             </div>
             <p class="occupation-text">Oraculum Coffee<br>SCA Certified Barista Skills<br>Trainer</p>
