@@ -12,6 +12,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^5.2.0",
+    "@types/stripe-v3": "^3.1.33",
+    "@vue-stripe/vue-stripe": "^4.5.0",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5"
   },

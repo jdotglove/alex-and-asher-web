@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import DesktopFooter from '@/components/footers/DesktopFooter.vue';
 import PaymentForm from '@/components/forms/PaymentForm.vue'
+import StripeProvider from '@/providers/StripeProvider.vue';
 </script>
 
 <template>
@@ -10,7 +11,9 @@ import PaymentForm from '@/components/forms/PaymentForm.vue'
         <h1>Update Your Payment Information</h1>
         <p>Please update your payment details to ensure continued service.</p>
       </header>
-      <PaymentForm />
+      <StripeProvider>
+        <PaymentForm />
+      </StripeProvider>
     </section>
     <section v-else>
       <header class="header">
@@ -22,8 +25,12 @@ import PaymentForm from '@/components/forms/PaymentForm.vue'
           <section>
             <article class="input-group">
               <label for="email" class="form-label">Account Email</label>
-              <input v-model="emailAddress" type="text" id="email" class="form-input" placeholder="example@email.com"
+              <input :className="{
+                'form-input': true,
+                'border-red-500': emailError ? true : false,
+              }" v-model="emailAddress" type="email" id="email" class="form-input" placeholder="example@email.com"
                 required />
+              <p v-if="emailError" class="error-message">{{ emailError }}</p>
             </article>
           </section>
           <button type="submit" class="submit-btn">Verify Email</button>
@@ -51,17 +58,24 @@ export default {
     verifiedEmailAddress: boolean;
     paymentSuccess: boolean;
     shapeColors: Array<string>;
+    emailError: string;
   } {
     return {
       emailAddress: '',
       verifiedEmailAddress: false,
       paymentSuccess: false,
       shapeColors: ['#A87FB9', '#5FBBFF', '#ADD58D'], // Color palette for shapes
+      emailError: '',
     }
   },
   methods: {
     async verifyEmailAddress(e: any) {
       e.preventDefault();
+
+      if (!this.emailAddress || !/\S+@\S+\.\S+/.test(this.emailAddress)) {
+        this.emailError = 'Invalid email address';
+      }
+
       const response = await fetch(
         `${import.meta.env.VITE_SERVER_API_BASE_URL}/payment-update?email=${this.emailAddress}&token=${this.updateAuthToken}`,
         {
@@ -124,6 +138,16 @@ export default {
   font-size: 1.1rem;
   color: var(--text-light);
   margin-top: 0.5rem;
+}
+
+.form-input.border-red-500 {
+  border-color: #f56565;
+}
+
+.error-message {
+  color: #f56565;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
 
 /* Header Styling */
