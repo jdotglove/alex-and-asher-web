@@ -11,7 +11,7 @@ import StripeProvider from '@/providers/StripeProvider.vue';
         <h1>Update Your Payment Information</h1>
         <p>Please update your payment details to ensure continued service.</p>
       </header>
-      <StripeProvider>
+      <StripeProvider :customer="customer">
         <PaymentForm />
       </StripeProvider>
     </section>
@@ -59,6 +59,7 @@ export default {
     paymentSuccess: boolean;
     shapeColors: Array<string>;
     emailError: string;
+    customer: Omit<AlexAndAsher.Customer, "name" | "createdAt" | "stripeId" | "updatedAt"> | null;
   } {
     return {
       emailAddress: '',
@@ -66,6 +67,7 @@ export default {
       paymentSuccess: false,
       shapeColors: ['#A87FB9', '#5FBBFF', '#ADD58D'], // Color palette for shapes
       emailError: '',
+      customer: null,
     }
   },
   methods: {
@@ -77,7 +79,7 @@ export default {
       }
 
       const response = await fetch(
-        `${import.meta.env.VITE_SERVER_API_BASE_URL}/payment-update?email=${this.emailAddress}&token=${this.updateAuthToken}`,
+        `${import.meta.env.VITE_SERVER_API_BASE_URL}/customers/verify-payment-update?email=${this.emailAddress}&token=${this.updateAuthToken}`,
         {
           method: 'GET',
           headers: {
@@ -88,7 +90,14 @@ export default {
       );
 
       const data = await response.json();
-      this.verifiedEmailAddress = data.verified;
+      this.verifiedEmailAddress = !!data.verifiedCustomer;
+
+      if (this.verifiedEmailAddress) {
+        this.customer = {
+          email: this.emailAddress,
+          _id: data.verifiedCustomer
+        }
+      }
     },
     createRandomShapes() {
       const container = document.querySelector('.main-content')
