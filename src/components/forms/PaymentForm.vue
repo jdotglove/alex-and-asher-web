@@ -3,7 +3,7 @@
     <form v-on:submit="submitPaymentInformation" class="payment-form" aria-labelledby="payment-form-title">
 
       <!-- Radio Buttons -->
-      <!-- <div class="radio-container">
+      <div class="radio-container">
         <div class="radio-options">
           <label>
             Use Card
@@ -14,19 +14,83 @@
             <input @change="handleOptionChange" type="radio" value="bank-account" v-model="updateOption" />
           </label>
         </div>
-      </div> -->
+      </div>
 
       <section v-if="updateOption === 'card'">
         <!-- Stripe CardElement -->
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          Enter Your Card Information
+        </label>
         <div id="card-element" class="p-5 m-5 border-2"></div>
       </section>
+      <section v-else>
+        <div class="px-5 m-5">
+          <label class="block text-sm font-medium text-gray-700 mb-1">
+            Account Holder Name
+          </label>
+          <input v-model="form.accountHolderName" type="text"
+            :class="['w-full px-3 py-2 border rounded-md', { 'border-red-500': errors.accountHolderName }]" />
+          <p v-if="errors.accountHolderName" class="text-red-500 text-sm mt-1">
+            {{ errors.accountHolderName }}
+          </p>
+        </div>
+
+        <div class="radio-container">
+          <div class="radio-options">
+            <label>
+              Checking
+              <input type="radio" value="checking" v-model="accountTypeOption" />
+            </label>
+            <label>
+              Savings
+              <input type="radio" value="savings" v-model="accountTypeOption" />
+            </label>
+          </div>
+        </div>
+
+        <div class="px-5 m-5">
+          <label class="block text-sm font-medium text-gray-700 mb-1">
+            Account Number
+          </label>
+          <input v-model="form.accountNumber" type="text" autocomplete="off"
+            :class="['w-full px-3 py-2 border rounded-md', { 'border-red-500': errors.accountNumber }]" />
+        </div>
+
+        <div class="px-5 m-5">
+          <label class="block text-sm font-medium text-gray-700 mb-1">
+            Re-enter Account Number
+          </label>
+          <input v-model="form.accountNumberConfirmation" type="text" autocomplete="off"
+            :class="['w-full px-3 py-2 border rounded-md', { 'border-red-500': errors.accountNumber }]" />
+          <p v-if="errors.accountNumber" class="text-red-500 text-sm mt-1">
+            {{ errors.accountNumber }}
+          </p>
+        </div>
+
+        <div class="px-5 m-5">
+          <label class="block text-sm font-medium text-gray-700 mb-1">
+            Routing Number
+          </label>
+          <input v-model="form.routingNumber" type="text" autocomplete="off"
+            :class="['w-full px-3 py-2 border rounded-md', { 'border-red-500': errors.routingNumber }]" />
+          <p v-if="errors.routingNumber" class="text-red-500 text-sm mt-1">
+            {{ errors.routingNumber }}
+          </p>
+        </div>
+      </section>
+      <p v-if="error" class="text-red-500 text-sm">
+        {{ error }}
+      </p>
+      <p v-if="success" class="text-green-500 text-sm">
+        Account updated successfully!
+      </p>
       <button type="submit" class="submit-btn">Update Payment</button>
     </form>
   </section>
 </template>
 
 <script lang="ts">
-import { defineComponent, inject, onMounted, ref } from "vue";
+import { defineComponent, inject, onMounted, ref, reactive } from "vue";
 
 export default defineComponent({
   name: "PaymentMethodForm",
@@ -38,6 +102,7 @@ export default defineComponent({
     const elements = ref<any | null>(null);
     const paymentDetails = ref<any | null>(null);
     const updateOption = ref<string>("card");
+    const accountTypeOption = ref<string>("checking");
     const isProcessing = ref<boolean>(false);
     const message = ref<string>("");
     const cardDetails = ref<Record<string, string>>({
@@ -45,11 +110,6 @@ export default defineComponent({
       cardNumber: "",
       expiryDate: "",
       cvv: "",
-    });
-    const accountDetails = ref<Record<string, string>>({
-      accountNumber: "",
-      accountNumberConfirmation: "",
-      routingNumber: "",
     });
 
     const moundCardElement = async () => {
@@ -62,6 +122,20 @@ export default defineComponent({
         cardElement.mount("#card-element");
       }
     }
+
+    const form = reactive({
+      accountHolderName: '',
+      accountNumber: '',
+      accountNumberConfirmation: '',
+      routingNumber: '',
+      country: '',
+      currency: ''
+    });
+
+    const errors: any = reactive({});
+
+    const error = ref(null);
+    const success = ref(false);
 
     onMounted(async () => {
       await moundCardElement();
@@ -99,6 +173,39 @@ export default defineComponent({
           );
 
           console.log(response);
+        } else {
+          const { error, paymentMethod } = await stripe.value.createPaymentMethod({
+            type: "us_bank_account",
+            us_bank_account: {
+              account_holder_type: "individual",
+              account_number: form.accountNumber,
+              routing_number: form.routingNumber,
+            },
+            billing_details: {
+              email: customer?.value?.email,
+              name: form.accountHolderName,
+            },
+          });
+
+          if (error) {
+            throw new Error(error);
+          }
+          console.log(paymentMethod)
+          const response = await fetch(
+            `${import.meta.env.VITE_SERVER_API_BASE_URL}/customers/${customer?.value?._id}/update-payment`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                authorization: import.meta.env.VITE_SERVER_API_KEY || "",
+              },
+              body: JSON.stringify({
+                paymentMethod: paymentMethod,
+              }),
+            }
+          );
+
+          console.log(response);
         }
       } catch (error: unknown) {
         throw new Error(`Error updating payment: ${error}`);
@@ -112,12 +219,16 @@ export default defineComponent({
     }
 
     return {
+      accountTypeOption,
+      error,
+      success,
+      errors,
+      form,
       paymentDetails,
       stripe: null,
       elements: null,
       updateOption,
       cardDetails,
-      accountDetails,
       paymentSuccess: false,
       isProcessing,
       message,

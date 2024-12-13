@@ -2,10 +2,15 @@
 import DesktopFooter from '@/components/footers/DesktopFooter.vue';
 import PaymentForm from '@/components/forms/PaymentForm.vue'
 import StripeProvider from '@/providers/StripeProvider.vue';
+import { useHead } from '@unhead/vue';
+
+useHead({
+  title: "Alex & Asher - Management Page"
+});
 </script>
 
 <template>
-  <main class="main-content">
+  <div class="form-content">
     <section v-if="verifiedEmailAddress">
       <header class="header">
         <h1>Update Your Payment Information</h1>
@@ -37,16 +42,13 @@ import StripeProvider from '@/providers/StripeProvider.vue';
         </form>
       </section>
     </section>
-  </main>
+  </div>
   <DesktopFooter />
 </template>
 
 <script lang="ts">
 
 export default {
-  async mounted() {
-    this.createRandomShapes(); // Create random shapes on mount
-  },
   computed: {
     // Retrieve query parameters from the $route object
     updateAuthToken() {
@@ -57,7 +59,6 @@ export default {
     emailAddress: string;
     verifiedEmailAddress: boolean;
     paymentSuccess: boolean;
-    shapeColors: Array<string>;
     emailError: string;
     customer: Omit<AlexAndAsher.Customer, "name" | "createdAt" | "stripeId" | "updatedAt"> | null;
   } {
@@ -65,7 +66,6 @@ export default {
       emailAddress: '',
       verifiedEmailAddress: false,
       paymentSuccess: false,
-      shapeColors: ['#A87FB9', '#5FBBFF', '#ADD58D'], // Color palette for shapes
       emailError: '',
       customer: null,
     }
@@ -99,34 +99,7 @@ export default {
         }
       }
     },
-    createRandomShapes() {
-      const container = document.querySelector('.main-content')
-      const shapeCount = 5 // Number of shapes to create
 
-      for (let i = 0; i < shapeCount; i++) {
-        const shape = document.createElement('div')
-        const size = Math.floor(Math.random() * 100) + 50 // Random size between 50 and 150px
-        const color = this.shapeColors[Math.floor(Math.random() * this.shapeColors.length)]
-        const positionTop = Math.floor(Math.random() * 100) // Random top position (0% - 100%)
-        const positionLeft = Math.floor(Math.random() * 100) // Random left position (0% - 100%)
-        const borderRadius = Math.random() > 0.5 ? '50%' : '0' // Randomly choose circle or square
-
-        shape.style.width = `${size}px`
-        shape.style.height = `${size}px`
-        shape.style.backgroundColor = color
-        shape.style.position = 'absolute'
-        shape.style.top = `${positionTop}%`
-        shape.style.left = `${positionLeft}%`
-        shape.style.borderRadius = borderRadius
-        shape.style.opacity = '0.1'
-        shape.style.pointerEvents = 'none'
-        shape.classList.add('random-shape')
-
-        if (container) {
-          container.appendChild(shape)
-        }
-      }
-    }
   },
 }
 </script>
@@ -177,7 +150,7 @@ export default {
 }
 
 /* Main Form Styling */
-.main-content {
+.form-content {
   display: grid;
   justify-content: center;
   padding: 0 1.5rem;

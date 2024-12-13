@@ -2,6 +2,11 @@
 import DesktopFooter from '@/components/footers/DesktopFooter.vue';
 import DesktopHeader from '@/components/headers/DesktopHeader.vue';
 import MobileHeader from '@/components/headers/MobileHeader.vue';
+import { useHead } from '@unhead/vue';
+
+useHead({
+  title: "Alex & Asher - About Us Page"
+});
 </script>
 
 <template>
@@ -139,8 +144,8 @@ import MobileHeader from '@/components/headers/MobileHeader.vue';
 
   .about-us-photo-and-text {
     font: 19px "Crimson Text", serif;
-
-    display: block;
+    gap: 20px;
+    display: grid;
   }
 
   .about-us-description-text {
@@ -149,6 +154,8 @@ import MobileHeader from '@/components/headers/MobileHeader.vue';
   }
 
   .draft-photo {
+    padding-top: 30px;
+    order: -1;
     width: 100%;
     height: 70lvw;
   }

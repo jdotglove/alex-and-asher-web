@@ -2,6 +2,11 @@
 import DesktopFooter from '@/components/footers/DesktopFooter.vue';
 import DesktopHeader from '@/components/headers/DesktopHeader.vue';
 import MobileHeader from '@/components/headers/MobileHeader.vue';
+import { useHead } from '@unhead/vue';
+
+useHead({
+  title: "Alex & Asher - Shop Page"
+});
 </script>
 
 <template>
@@ -36,5 +41,17 @@ import MobileHeader from '@/components/headers/MobileHeader.vue';
 .shop-page-content>p {
   font: 16.8px "Nunito Sans", sans-serif;
   margin-left: 20rem;
+}
+
+@media (max-width: 962px) {
+  .shop-page-title {
+    font: 56px "Crimson Text", serif;
+  }
+
+  .shop-page-content>p {
+    font: 16.8px "Nunito Sans", sans-serif;
+    margin: auto;
+    padding: 20px;
+  }
 }
 </style>

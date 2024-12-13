@@ -2,6 +2,11 @@
 import DesktopFooter from '@/components/footers/DesktopFooter.vue';
 import DesktopHeader from '@/components/headers/DesktopHeader.vue';
 import MobileHeader from '@/components/headers/MobileHeader.vue';
+import { useHead } from '@unhead/vue';
+
+useHead({
+  title: "Alex & Asher - Home Page"
+});
 </script>
 
 <template>

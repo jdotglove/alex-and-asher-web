@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import { useHead } from '@unhead/vue';
+
+useHead({
+  title: "Alex & Asher - User Agreement Page"
+});
+</script>
+
 <template>
   <main>
     <span class="logo-container">

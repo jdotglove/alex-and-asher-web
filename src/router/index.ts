@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import PaymentManagementView from '@/views/PaymentManagementView.vue'
-import ManagementView from '@/views/ManagementView.vue'
-import RedirectToHtml from '@/components/RedirectToHtml.vue'
 import HomeView from '@/views/HomeView.vue'
 import AboutUsView from '@/views/AboutUsView.vue'
 import ServicesView from '@/views/ServicesView.vue'
@@ -40,13 +38,8 @@ const router = createRouter({
       path: '/payment-management/:updateAuthToken',
       name: 'payment-management',
       component: PaymentManagementView
-    },
-    {
-      path: '/alex-and-asher-admin',
-      name: 'payment-management-admin',
-      component: ManagementView
     }
   ]
-})
+});
 
-export default router
+export default router;

@@ -2,6 +2,11 @@
 import DesktopFooter from '@/components/footers/DesktopFooter.vue';
 import DesktopHeader from '@/components/headers/DesktopHeader.vue';
 import MobileHeader from '@/components/headers/MobileHeader.vue';
+import { useHead } from '@unhead/vue';
+
+useHead({
+  title: "Alex & Asher - Services Page"
+});
 </script>
 
 <template>
@@ -167,34 +172,39 @@ ul {
     margin: 0 0;
     display: flex;
     justify-self: center;
+    height: fit-content;
+    align-self: flex-end;
   }
 
   .services-column-header>h4 {
     margin: 0 0;
+    height: fit-content;
   }
 
   .services-column {
     display: grid;
+    grid-template-rows: 50px 25px 1fr;
   }
 
   .services-column-separator {
-    width: 80%;
+    width: 100%;
   }
 
   .services-list-text-container {
     display: flex;
-    justify-self: center;
+    justify-self: stretch;
     font: 16.8px "PT Serif";
     line-height: 2;
-    width: 20rem;
+    width: 100%;
   }
 
   .services-list-text-container li {
-    margin: 10px 0;
+    margin: 10px 10px;
   }
 
   .services-list-text-container ul {
-    width: 70%;
+    width: 100%;
+    padding: 0 10px;
   }
 }
 

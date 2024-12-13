@@ -46,9 +46,9 @@
     </header>
     <div class="dialog-navigation-container">
       <nav class="dialog-navigation">
-        <a href="about-us.html" class="nav-link">About Us</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="/about-us" class="nav-link">About Us</a>
+        <a href="/services" class="nav-link">Services</a>
+        <a href="/shop" class="nav-link">Shop</a>
         <a href="https://www.google.com/maps/place/Alex+%26+Asher/@35.4587539,-78.5025389,8z/data=!3m1!4b1!4m6!3m5!1s0x4553d12bf734747f:0xaf76986437b14c5d!8m2!3d35.4587539!4d-78.5025389!16s%2Fg%2F11s7rg0y54?entry=ttu"
           class="nav-link" target="_blank">Leave A Review</a>
       </nav>
