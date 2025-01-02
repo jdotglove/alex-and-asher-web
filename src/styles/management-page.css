@@ -1,0 +1,159 @@
+/* Root Variables for Color Scheme and Sizing */
+:root {
+  --color-primary: #a87fb9; /* Soft purple */
+  --color-secondary: #5fbbff; /* Bright blue */
+  --color-accent: #add58d; /* Soft green */
+  --bg-color: #1e1e2f; /* Dark base background */
+  --text-light: #ffffff; /* Light text color */
+  --table-bg: #333545; /* Darker table background */
+  --border-radius: 8px;
+  --spacing: 1rem;
+}
+
+/* General Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-light);
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* Page Header Styling */
+.page-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+/* Geometric Background Accents */
+.customers-list-page::before,
+.customers-list-page::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.customers-list-page::before {
+  width: 180px;
+  height: 180px;
+  background-color: var(--color-secondary);
+  top: -40px;
+  left: -40px;
+}
+
+.customers-list-page::after {
+  width: 160px;
+  height: 160px;
+  background-color: var(--color-accent);
+  bottom: -40px;
+  right: -40px;
+}
+
+/* Customers Table Container */
+.customers-table-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow-x: auto;
+  background-color: var(--table-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+/* Customers Table Styling */
+.customers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.customers-table thead {
+  background-color: var(--color-primary);
+}
+
+.customers-table th,
+.customers-table td {
+  padding: 1rem;
+  text-align: left;
+  color: var(--text-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.customers-table th {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.customers-table tbody tr {
+  background-color: var(--table-bg);
+}
+
+.customers-table tbody tr:nth-child(even) {
+  background-color: #44475a;
+}
+
+.customers-table tbody tr:hover {
+  background-color: #5a5e6f;
+  transition: background-color 0.3s;
+}
+
+/* Action Button Styling */
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+}
+
+.view-btn {
+  background-color: var(--color-secondary);
+}
+
+.view-btn:hover {
+  background-color: #3d8fd1;
+}
+
+.edit-btn {
+  background-color: var(--color-primary);
+}
+
+.edit-btn:hover {
+  background-color: #944ba3;
+}
+
+.delete-btn {
+  background-color: #ff6666;
+}
+
+.delete-btn:hover {
+  background-color: #e65555;
+  transform: scale(1.05);
+}

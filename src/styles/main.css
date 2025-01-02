@@ -1,0 +1,24 @@
+@import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a.green:hover {
+    background-color: hsla(96, 52%, 69%, 1);
+  }
+  a.blue:hover {
+    background-color: hsla(204, 100%, 68.6%, 1);
+  }
+  a.purple:hover {
+    background-color: hsla(285, 30.6%, 61.2%, 1);
+  }
+}
