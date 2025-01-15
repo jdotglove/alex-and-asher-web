@@ -1,17 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="css/services-style.css" />
   <script src="components/headers.js"></script>
   <script src="components/footers.js"></script>
   <title>Alex & Asher Tech - Services</title>
+  <meta name="description"
+    content="Professional coffee equipment services: machine sales & leasing, draft line installation, barista training, POS systems, and business solutions. SCA certified training available." />
+  <meta name="keywords"
+    content="coffee machine sales, coffee equipment leasing, draft line installation, barista training, refrigeration services, POS systems, inventory solutions, SCA certified training" />
+  <meta name="author" content="Alex & Asher" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph tags for social sharing -->
+  <meta property="og:title" content="Alex & Asher" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description"
+    content="Complete coffee equipment services and business solutions: from machine sales to SCA certified barista training." />
+  <!-- <meta
+      property="og:image"
+      content="https://yourdomain.com/path/to/image.jpg"
+    /> -->
+  <meta property="og:url" content="https://www.alexandasher.tech/services" />
+  <meta property="og:site_name" content="Alex & Asher" />
+
+  <!-- Twitter Card tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Alex & Asher" />
+  <meta name="twitter:description"
+    content="Professional machine repair, technical support, and consulting services in Raleigh, NC. 24/7 emergency repairs, preventive maintenance, and innovative solutions for your technical needs." />
+  <!-- <meta
+      name="twitter:image"
+      content="https://yourdomain.com/path/to/image.jpg"
+    /> -->
+
+  <!-- Canonical URL to prevent duplicate content issues -->
+  <link rel="canonical" href="https://www.alexandasher.tech/services" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechnicalService",
+        "name": "Alex & Asher",
+        "description": "Professional coffee equipment services: machine sales & leasing, draft line installation, barista training, POS systems, and business solutions. SCA certified training available."
+      }
+    </script>
+
+  <!-- Service Offerings Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Coffee Machine Sales, Leasing & Installation",
+            "description": "Professional coffee equipment sales and leasing solutions",
+            "provider": {
+              "@type": "Person",
+              "name": "Jordon Glover",
+              "jobTitle": "Founder / Head Technician"
+            }
+          },
+          "position": 1
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Draft Line Installation",
+            "description": "Professional beverage line installation and cleaning services",
+            "provider": {
+              "@type": "Person",
+              "name": "Jordon Glover",
+              "jobTitle": "Founder / Head Technician"
+            }
+          },
+          "position": 2
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name":  "Preventative Maintenance Plans",
+            "description": "Professional preventative maintenance plans",
+            "provider": {
+              "@type": "Person",
+              "name": "Jordon Glover",
+              "jobTitle": "Founder / Head Technician"
+            }
+          },
+          "position": 3
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name":  "Refrigeration",
+            "description": "Professional refrigeration services",
+            "provider": {
+              "@type": "Person",
+              "name": "Jordon Glover",
+              "jobTitle": "Founder / Head Technician"
+            }
+          },
+          "position": 4
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Barista Training",
+            "description": "SCA certified training by Autumn Ingool",
+            "provider": {
+              "@type": "Person",
+              "name": "Autumn Ingool",
+              "jobTitle": "SCA Barista Skills Intermediate Certified Trainer"
+            }
+          },
+          "position": 5
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body>
@@ -41,7 +162,7 @@
         <nav class="dialog-navigation">
           <a href="about-us.html" class="nav-link">About Us</a>
           <a href="services.html" class="nav-link">Services</a>
-          <a href="shop.html" class="nav-link">Shop</a>
+
           <a href="https://www.google.com/maps/place/Alex+%26+Asher/@35.4587539,-78.5025389,8z/data=!3m1!4b1!4m6!3m5!1s0x4553d12bf734747f:0xaf76986437b14c5d!8m2!3d35.4587539!4d-78.5025389!16s%2Fg%2F11s7rg0y54?entry=ttu"
             class="nav-link" target="_blank">Leave A Review</a>
         </nav>
@@ -51,17 +172,17 @@
       <desktop-header-component />
       <mobile-header-component />
       <div>
-        <h2 class="services-page-title">
-          Services
-        </h2>
+        <h2 class="services-page-title">Services</h2>
       </div>
       <section class="services-page-content">
-
         <div class="services-description-container">
           <img class="services-photo" src="assets/tools-image.webp" alt="people sitting around table" />
           <div class="services-content">
-            <p class="services-text">We offer services to help keep your specialty shop running and equipment maintained
-              as well as training and education opportunities.</p>
+            <p class="services-text">
+              We offer services to help keep your specialty shop running and
+              equipment maintained as well as training and education
+              opportunities.
+            </p>
           </div>
         </div>
         <section class="desktop-services-list-card">
@@ -89,15 +210,31 @@
           </div>
           <div class="services-list-text-container">
             <ul class="services-list">
-              <li>Coffee Machines Sales, Leasing, & Installation</li>
-              <li>Draft Line Installation & Cleaning</li>
-              <li>Preventative Maintenance Plans</li>
-              <li>Refrigeration</li>
+              <li itemscope itemtype="https://schema.org/Service">
+                <span itemprop="name">Coffee Machines Sales, Leasing, & Installation</span>
+              </li>
+              <li itemscope itemtype="https://schema.org/Service">
+                <span itemprop="name">Draft Line Installation & Cleaning</span>
+              </li>
+              <li itemscope itemtype="https://schema.org/Service">
+                <span itemprop="name">Preventative Maintenance Plans</span>
+              </li>
+              <li itemscope itemtype="https://schema.org/Service">
+                <span itemprop="name">Refrigeration</span>
+              </li>
             </ul>
             <ul class="services-list">
-              <li>Coffee & Barista 101 Training by Autumn Ingool (SCA Barista Skills Intermediate Certified) of Oraculum
-                Coffee</li>
-              <li>Custom/Continuing Coffee Education Training Plans with Autumn Ingool</li>
+              <li itemscope itemtype="https://schema.org/Service">
+                <span itemprop="name">
+                  Coffee & Barista 101 Training by Autumn Ingool (SCA Barista Skills Intermediate Certified) of Oraculum
+                  Coffee
+                </span>
+              </li>
+              <li itemscope itemtype="https://schema.org/Service">
+                <span itemprop="name">
+                  Custom/Continuing Coffee Education Training Plans with Autumn Ingool
+                </span>
+              </li>
             </ul>
             <ul class="services-list">
               <li>Website Development</li>
@@ -114,10 +251,18 @@
             <hr class="services-column-separator" />
             <div class="services-list-text-container">
               <ul class="services-list">
-                <li>Coffee Machines Sales, Leasing, & Installation</li>
-                <li>Draft Line Installation & Cleaning</li>
-                <li>Preventative Maintenance Plans</li>
-                <li>Refrigeration</li>
+                <li itemscope itemtype="https://schema.org/Service">
+                  <span itemprop="name">Coffee Machines Sales, Leasing, & Installation</span>
+                </li>
+                <li itemscope itemtype="https://schema.org/Service">
+                  <span itemprop="name">Draft Line Installation & Cleaning</span>
+                </li>
+                <li itemscope itemtype="https://schema.org/Service">
+                  <span itemprop="name">Preventative Maintenance Plans</span>
+                </li>
+                <li itemscope itemtype="https://schema.org/Service">
+                  <span itemprop="name">Refrigeration</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -128,9 +273,17 @@
             <hr class="services-column-separator" />
             <div class="services-list-text-container">
               <ul class="services-list">
-                <li>Coffee & Barista 101 Training by Autumn Ingool (SCA Barista Skills Intermediate Certified) of Oraculum
-                  Coffee</li>
-                <li>Custom/Continuing Coffee Education Training Plans with Autumn Ingool</li>
+                <li itemscope itemtype="https://schema.org/Service">
+                  <span itemprop="name">
+                    Coffee & Barista 101 Training by Autumn Ingool (SCA Barista Skills Intermediate Certified) of
+                    Oraculum Coffee
+                  </span>
+                </li>
+                <li itemscope itemtype="https://schema.org/Service">
+                  <span itemprop="name">
+                    Custom/Continuing Coffee Education Training Plans with Autumn Ingool
+                  </span>
+                </li>
               </ul>
             </div>
           </div>
