@@ -1,11 +1,21 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "types": ["@types/node", "@nuxt/types"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
     },
-    {
-      "path": "./tsconfig.app.json"
-    }
-  ]
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  }
 }
